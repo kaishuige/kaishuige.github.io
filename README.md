@@ -56,11 +56,11 @@
 
 ### *CSS3+html5*
 
-[loading](https://kaishuige.github.io/CSS3&HTML5/loadings/index.html)
+[loading](https://kaishuige.github.io/CSS3&HTML5/loadings/loadings.html)
 
 [幽灵按钮](https://kaishuige.github.io/CSS3&HTML5/幽灵按钮/index.html)
 
-[3dBOX](https://kaishuige.github.io/CSS3&HTML5/正方体/index.html)
+[3dBOX](https://kaishuige.github.io/CSS3&HTML5/正方体/3Ddbox.html)
 
 ### *bootstrap + 跳转分页面*
 
