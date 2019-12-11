@@ -1,0 +1,365 @@
+.wrapper .wrap {
+  width: 1200px;
+  margin: 0 auto;
+  border-top: 2px solid #d9232e;
+}
+.wrapper .wrap .header {
+  padding-top: 27px;
+  width: 1200px;
+}
+.wrapper .wrap .header .headerleft {
+  width: 61px;
+  height: 75px;
+  float: left;
+  margin-top: 4px;
+}
+.wrapper .wrap .header .headerright {
+  float: right;
+  width: 457px;
+  height: 101px;
+}
+.wrapper .wrap .header .headerright .clearfix {
+  float: right;
+  width: 104px;
+}
+.wrapper .wrap .header .headerright .clearfix .clear {
+  width: 73px;
+  height: 18px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  float: left;
+  padding-bottom: 6px;
+}
+.wrapper .wrap .header .headerright .clearfix .clear .versions {
+  width: 73px;
+  position: absolute;
+  background: #fff;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  color: #666;
+  border: 0;
+  outline: none;
+  padding-left: 12px;
+  box-sizing: border-box;
+}
+.wrapper .wrap .header .headerright .clearfix .clear img {
+  width: 8px;
+  height: 5px;
+  position: absolute;
+  right: 0;
+  top: 4px;
+}
+.wrapper .wrap .header .headerright .clearfix .serach {
+  float: right;
+  width: 12px;
+  height: 13px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+.wrapper .wrap .header .headerright .naver .navigation {
+  width: auto;
+  height: 44px;
+  margin-top: 56px;
+}
+.wrapper .wrap .header .headerright .naver .navigation .nav {
+  float: left;
+  margin-right: 53px;
+  padding-bottom: 20px;
+}
+.wrapper .wrap .header .headerright .naver .nav:last-child {
+  margin-right: 0;
+}
+.wrapper .wrap .header .headerright .naver .nav:nth-child(3) {
+  border-bottom: 3px solid #d9232e;
+  color: #d9232e;
+}
+.wrapper .wrap .header .headerright .naver a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+.wrapper .wrap .header .headerright .naver a:hover {
+  color: #d9232e;
+}
+.wrapper .wrap .list {
+  display: inline-block;
+}
+.wrapper .wrap .list .navlistwrap {
+  width: 1200px;
+}
+.wrapper .wrap .list .navlistwrap .navlist {
+  border-top: 1px solid #ccc;
+  padding-top: 38px;
+  border-bottom: 0;
+  margin-top: 0;
+  display: flex;
+}
+.wrapper .wrap .list .navlistwrap .navlist a {
+  text-decoration: none;
+  width: 10%;
+  float: left;
+  text-align: center;
+  flex: 1;
+}
+.wrapper .wrap .list .navlistwrap .navlist a img {
+  display: none;
+  max-width: 28px;
+  height: 23px;
+  margin: 0 auto;
+}
+.wrapper .wrap .list .navlistwrap .navlist a .show {
+  display: none;
+}
+.wrapper .wrap .list .navlistwrap .navlist a .hide {
+  display: block;
+}
+.wrapper .wrap .list .navlistwrap .navlist a .navcaption {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #666;
+  margin-top: 15px;
+}
+.wrapper .wrap .list .bannerwrap {
+  margin-top: 40px;
+}
+.wrapper .wrap .list .mainpush {
+  width: 100%;
+  margin: 20px 0;
+  display: inline-block;
+}
+.wrapper .wrap .list .mainpush .mainpushlist {
+  width: 49%;
+  height: 591px;
+  position: relative;
+  float: left;
+  overflow: hidden;
+}
+.wrapper .wrap .list .mainpush .mainpushlist:first-child {
+  margin-right: 2%;
+}
+.wrapper .wrap .list .mainpush .mainpushlist a {
+  text-decoration: none;
+  color: #666;
+}
+.wrapper .wrap .list .mainpush .mainpushlist .mainpushimg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.wrapper .wrap .list .mainpush .mainpushlist .mplistlayout {
+  width: 211px;
+  position: absolute;
+  top: 80px;
+  right: 64px;
+}
+.wrapper .wrap .list .mainpush .mainpushlist .mplistlayout .mptitle {
+  width: 211px;
+  font-size: 30px;
+  color: #000;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+}
+.wrapper .wrap .list .mainpush .mainpushlist .mplistlayout .mpthems {
+  width: 201px;
+  height: 40px;
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-top: 16px;
+}
+.wrapper .wrap .list .mainpush .mainpushlist .mplistlayout .mplink {
+  display: block;
+  width: 33px;
+}
+.wrapper .wrap .list .mainstreamwrap {
+  display: inline-block;
+  width: 1200px;
+  background: #f9f9f9;
+  padding: 91px 0 109px;
+}
+.wrapper .wrap .list .mainstreamwrap:after {
+  content: "—————————————————————————————————————————————————————————";
+  display: block;
+  clear: both;
+  text-align: center;
+  color: #ccc;
+  height: 0;
+}
+.wrapper .wrap .list .mainstreamwrap .mainstream {
+  margin: 0 0 56px 0px;
+}
+.wrapper .wrap .list .mainstreamwrap .mainstream .msimg {
+  width: 596px;
+  height: 396px;
+  float: left;
+  overflow: hidden;
+}
+.wrapper .wrap .list .mainstreamwrap .mainstream .msimg a img {
+  width: 596px;
+  display: block;
+}
+.wrapper .wrap .list .mainstreamwrap .mainstream .mscon {
+  width: 326px;
+  float: left;
+  margin-left: 37px;
+  margin-top: 72px;
+}
+.wrapper .wrap .list .mainstreamwrap .mainstream .mscon .mstitle {
+  text-decoration: none;
+  display: block;
+  width: 326px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 30px;
+  color: #000;
+}
+.wrapper .wrap .list .mainstreamwrap .mainstream .mscon .msthems {
+  width: 326px;
+  height: 95px;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  color: #666;
+  margin-top: 20px;
+}
+.wrapper .wrap .list .mainstreamwrap .mainstream .mscon .carousellink {
+  cursor: pointer;
+  width: 178px;
+  height: 45px;
+}
+.wrapper .wrap .list .mainstreamwrap .mainstream .mscon .carousellink img {
+  display: none;
+  width: 178px;
+  height: 45px;
+}
+.wrapper .wrap .list .mainstreamwrap .mainstream .mscon .carousellink .showimg {
+  display: block;
+}
+.wrapper .wrap .list .productvideo {
+  width: 100%;
+  margin-top: 20px;
+}
+.wrapper .wrap .list .productvideo .productvid {
+  width: 600px;
+  height: 376px;
+  position: relative;
+  float: left;
+}
+.wrapper .wrap .list .productvideo .productvid .pvplay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 94px;
+  height: 94px;
+  z-index: 3;
+  opacity: 0.7;
+}
+.wrapper .wrap .list .productvideo .productvid .pvplay:hover {
+  opacity: 1;
+}
+.wrapper .wrap .list .productvideo .productvid .pvbg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  max-height: 100%;
+}
+.wrapper .wrap .list .productvideo .pvcon {
+  float: left;
+  width: 600px;
+  height: 376px;
+  background-color: #d9232e;
+  padding: 56px 0 0 71px;
+  box-sizing: border-box;
+}
+.wrapper .wrap .list .productvideo .pvcon .pvtitle {
+  text-decoration: none;
+  font-size: 36px;
+  color: #fff;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+}
+.wrapper .wrap .list .productvideo .pvcon .pvtitle:hover {
+  color: #095f8a;
+}
+.wrapper .wrap .list .productvideo .pvcon .pvtag {
+  text-decoration: none;
+  margin: 8px 0 29px;
+  padding: 20px 0;
+  font-size: 36px;
+  color: #fff;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+.wrapper .wrap .list .productvideo .pvcon .pvtag:hover {
+  color: #095f8a;
+}
+.wrapper .wrap .list .productvideo .pvcon .pvthems {
+  width: 449px;
+  height: 48px;
+  font-size: 14px;
+  color: #fff;
+  overflow: hidden;
+  line-height: 24px;
+}
+.wrapper .wrap .list .productvideo .pvcon .bglink {
+  margin: 8px 0 29px;
+  width: 178px;
+  height: 45px;
+  display: block;
+  border: 1px solid #fff;
+  margin-top: 20px;
+}
+.wrapper .wrap .list .productvideo .pvcon .bglink img {
+  width: 178px;
+  height: 45px;
+  display: none;
+}
+.wrapper .wrap .list .productvideo .pvcon .bglink .showing {
+  display: block;
+}
+.wrapper .wrap .list .productvideo .pvcon .bglink .showing:hover {
+  display: none;
+}
+.wrapper .wrap .list .productvideo .pvcon .bglink .hideing {
+  display: none;
+}
+.wrapper .wrap .list .productvideo .pvcon .bglink .hideing:hover {
+  display: block;
+}
+.wrapper .wrap .list .productvideo .pvcon .bglink:hover {
+  border: none;
+}
+.wrapper .wrap .footer {
+  width: 100%;
+  margin-top: 100px;
+  border-top: 2px solid #000;
+  padding: 38px 0 70px;
+}
+.wrapper .wrap .footer .footleft {
+  float: left;
+}
+.wrapper .wrap .footer .footleft .copyRight {
+  width: 100%;
+  font-size: 14px;
+  color: #666;
+}
+/*# sourceMappingURL=./product.css.map */

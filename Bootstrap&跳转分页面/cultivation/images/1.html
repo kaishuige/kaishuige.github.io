@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="lkz">
+        <div class="box">
+            <div class="left">
+                <ul>
+                    <li><span>Home</span> </li>
+                    <li><span>About</span></li>
+                    <li><span>Services</span> </li>
+                    <li><span>Products</span> </li>
+                    <li><span>Blog</span> </li>
+                    <li><span>Contact</span> </li>
+                </ul>
+                <form class="right">
+                    <input type="text">
+                    <input type="submit" value="">
+                </form>
+
+            </div>
+        </div>
+        <h1><span>Cultivation</span></h1>
+        <div class="box2">
+
+            <ul>
+                <span>
+                    <li><img src="./icon4.png" alt="">
+                        <h4>Dolor nunc vule</h4>
+                        <p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet velit justo, in
+                            ven e natis purus.</p>
+                    </li>
+                </span>
+                <span>
+                    <li><img src="./icon4.png" alt="">
+                        <h4>Dolor nunc vule</h4>
+                        <p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet velit justo, in
+                            ven e natis purus.</p>
+                    </li>
+                </span>
+                <span>
+                    <li><img src="./icon4.png" alt="">
+                        <h4>Dolor nunc vule</h4>
+                        <p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet velit justo, in
+                            ven e natis purus.</p>
+                    </li>
+                </span>
+                <span>
+                    <li><img src="./icon4.png" alt="">
+                        <h4>Dolor nunc vule</h4>
+                        <p>Cras consequat iaculis lorem, id vehicula erat mattis quis. Vivamus laoreet velit justo, in
+                            ven e natis purus.</p>
+                    </li>
+                </span>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+    <style>
+        body{
+            margin: 0 auto;
+        }
+        .lkz {
+
+
+            background: url('./banner.jpg')no-repeat;
+            background-size: 100% auto;
+            padding-top: 20px;
+            padding-bottom: 30px;
+
+        }
+
+        .left {
+            margin: 0 auto;
+            width: 1140px;
+            overflow: hidden;
+            background: #333;
+            line-height: 58px;
+        }
+
+        .left ul li {
+            float: left;
+            list-style: none;
+            margin-left: 15px;
+            color: white;
+            line-height: 58px;
+
+
+        }
+
+        .box .left ul li::after {
+            content: '/';
+            margin-left: 15px;
+        }
+
+        .box .left ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box .right {
+            float: right;
+            padding: 0;
+            position: relative;
+            line-height: 58px;
+        }
+
+        /* .box .left ul li :first-child{
+                    border-top: 5px solid yellow;
+                } */
+
+        .box .left ul li:last-child:after {
+            content: none;
+        }
+
+
+
+        .box .left ul li span:hover {
+            cursor: pointer;
+            color: yellow;
+            transition: all 1S;
+        }
+
+        .box .left span:hover {
+            border-top: 3px solid yellow;
+            transform: all 1s;
+        }
+
+        .box .right input:first-child {
+            background: transparent;
+            border: 1px solid white;
+            outline: none;
+            height: 30px;
+            font-size: 15px;
+            position: relative;
+            top: -1px;
+            right: 26px;
+            color: white;
+            padding: 0 5px;
+        }
+
+        .box .right input:last-child {
+            background: url('./search.png')center;
+            height: 22px;
+            width: 22px;
+            position: absolute;
+            top: 17px;
+            right: 36px;
+            border: 0;
+        }
+
+        .lkz h1 {
+
+            margin: 240px 0 150px 0;
+            color: white;
+            text-align: center;
+
+        }
+
+
+        .lkz h1 span {
+            border-top: 5px solid white;
+            border-bottom: 5px solid white;
+        }
+        .box2{
+            margin: 0 auto;
+            width: 1140px;
+            text-align: center;
+            background:transparent;
+            color:white;
+            padding: 20px 0;
+            overflow: hidden;
+        }
+
+        .box2 ul span li {
+            list-style: none;
+            background: green;
+            text-align: center;
+            color: white;
+            padding: 21px 28px;
+            margin: 0 15px;
+        }
+
+        .box2  ul {
+            width: 1140px;
+            margin: 0 auto;
+            padding: 0;
+        }
+       .box2 ul span{
+            width: 25%;
+            float: left;
+        }
+        .box2 img{
+            border: 3px solid white;
+            border-radius: 50%;
+            padding: 10px;
+        }
+        .box2 img:hover{
+            transform: rotateY(360deg);
+            transition: all 0.5S;
+        }
+        
+        
+            
+        
+    </style>
+
+
+    </div>
+    </div>
+
+</body>
+
+</html>

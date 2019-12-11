@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: hotpink;
+        }
+
+        .clock {
+            width: 600px;
+            height: 600px;
+            background: blueviolet;
+            margin: 200px auto;
+            position: relative;
+            background: url('./clock.jpg')no-repeat center center;
+            background-size: cover;
+        }
+        
+
+        .dot {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: yellow;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0px;
+            margin: auto;
+
+        }
+
+        .time {
+            margin-bottom: -100px;
+            text-align: center;
+        }
+
+        .clock .second-hour {
+            
+            position: absolute;
+            height:500px;
+            top: 50px;
+            left: 50%;
+        }
+
+        .clock .second-hour>div {
+            width: 6px;
+            height: 250px;
+            background: black;
+            margin-left: -3px;
+
+        }
+
+        .clock .second-hour>div:last-child {
+            background: transparent;
+        }
+
+        .clock .min-hour {
+            height: 400px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+        }
+
+        .clock .min-hour>div {
+            width: 10px;
+            height: 200px;
+            background: red;
+            margin-left: -5px;
+        }
+
+        .clock .min-hour>div:last-child {
+            background: transparent;
+        }
+
+        .clock .the-hour {
+            position: absolute;
+            height: 200px;
+            top: 200px;
+            left: 50%;
+        }
+
+        .clock .the-hour>div {
+            background: rosybrown;
+            width: 10px;
+            margin-left: -5px;
+            height: 100px;
+        }
+
+        .clock .the-hour>div:last-child {
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="time">
+        <!-- 显示时间 -->
+    </div>
+
+
+    <div class="clock ">
+         
+        <div class="dot">
+            <!-- 中间的小圆点 -->
+            <div class="smalldot"></div>
+        </div>
+        <div class="the-hour">
+            <div></div>
+            <div></div>
+        </div>
+
+
+        <div class="min-hour">
+            <div></div>
+            <div></div>
+        </div>
+
+
+        <div class="second-hour">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <script>
+        var time = document.querySelector('.time')
+        var clock = document.querySelector('.clock')
+        var secondHour = clock.querySelector('.second-hour')
+        var minHour = clock.querySelector('.min-hour')
+        var theHour = clock.querySelector('.the-hour')
+
+
+
+        window.onload = function () {
+            setInterval(function timeShow() {
+
+                var nowTime = new Date()
+                var y = nowTime.getUTCFullYear()
+                var mons = nowTime.getUTCMonth()
+                var d = nowTime.getDate()
+                var week = nowTime.getDay()
+                var h = nowTime.getHours()
+                // console.log(h);
+
+                var m = nowTime.getMinutes()
+                var s = nowTime.getSeconds()
+
+                d < 10 ? d = "0" + d : d;
+                h < 10 ? h = "0" + h : h;
+                m < 10 ? m = "0" + m : m;
+                s < 10 ? s = "0" + s : s;
+                mons < 10 ? mons = "0" + mons : mons;
+
+                time.innerText = y + '/' + mons + '/' + d + '/' + '星期' + week + '/' +
+                    h + ':' + m + '/' + s
+
+
+                secondHour.style.transform = "rotate(" + s * 6 + "deg)"
+                minHour.style.transform = "rotate(" + m * 6 + "deg)"
+                theHour.style.transform = "rotate(" +( (h * 30) + (m * 6) / 12) + "deg)"
+
+
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>

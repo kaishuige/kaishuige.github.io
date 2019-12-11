@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小开的抽奖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            font-size: 25px;
+            color: #F0FF00;
+            line-height: 150px;
+        }
+
+        .stage {
+            background: url('./img/bg.png')no-repeat;
+            width: 540px;
+            height: 550px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .stage .box .img-box {
+            background: url('./img/bg1.png')no-repeat;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            float: left;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            overflow: hidden;
+            /* background: yellow; */
+            /* transition: 0.1s; */
+
+        }
+
+        .stage .box .img-box:nth-child(1) .img {
+            padding-top: 40px;
+        }
+
+        .stage .box .img-box:nth-child(9) .img {
+            padding-top: 37px;
+        }
+
+        .stage .box .img-box:nth-child(3) .img {
+            padding-top: 45px;
+            padding-bottom: 20px;
+        }
+
+        .stage .box .img-box:nth-child(6) .img {
+            padding-top: 45px;
+            padding-bottom: 20px;
+        }
+
+        .stage .box .img-box:nth-child(5) {
+            background: #FE4135;
+            overflow: hidden;
+            border-radius: 20px;
+
+        }
+
+        .stage .box .img-box:nth-child(5):hover {
+            background-color: #fe8d85;
+        }
+
+
+        .stage .box .img-box .img {
+            padding-top: 30px;
+        }
+
+        .stage .box .img-box span {
+            font-size: 14px;
+            display: block;
+            padding-top: 10px;
+        }
+
+        .stage .box .img-box.active {
+            background: #F0FF00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="box">
+            <div class="img-box">
+                <!-- <img src="./img/bg1.png" alt=""> -->
+                <div class="img"><img src="./img/img1.png" alt=""></div>
+                <span class="infor">虚拟主机 1元/年</span>
+            </div>
+            <div class="img-box">
+                <!-- <img src="./img/bg1.png" alt=""> -->
+                <div class="img"><img src="./img/img2.png" alt=""></div>
+                <span class="infor">VPS 1元/30天</span>
+            </div>
+            <div class="img-box">
+                <!-- <img src="./img/bg1.png" alt=""> -->
+                <div class="img"><img src="./img/img3.png" alt=""></div>
+                <span class="infor">.top域名 1元/年</span>
+            </div>
+            <div class="img-box">
+                <!-- <img src="./img/bg1.png" alt=""> -->
+                <div class="img"><img src="./img/img4.png" alt=""></div>
+                <span class="infor">免费主机1年</span>
+            </div>
+            <div class="img-box btn">
+                <h3>立即抽奖</h3>
+            </div>
+            <div class="img-box">
+                <!-- <img src="./img/bg1.png" alt=""> -->
+                <div class="img"><img src="./img/img5.png" alt=""></div>
+                <span class="infor">.com域名 19元/年</span>
+            </div>
+            <div class="img-box">
+                <!-- <img src="./img/bg1.png" alt=""> -->
+                <div class="img"><img src="./img/img6.png" alt=""></div>
+                <span class="infor">.com域名 28元/年</span>
+            </div>
+            <div class="img-box">
+                <!-- <img src="./img/bg1.png" alt=""> -->
+                <div class="img"><img src="./img/img7.png" alt=""></div>
+                <span class="infor">CDN加速 10元/15天</span>
+            </div>
+            <div class="img-box">
+                <!-- <img src="./img/bg1.png" alt=""> -->
+                <div class="img"><img src="./img/img8.png" alt=""></div>
+                <span class="infor">20元快云币</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var arr = [1, 2, 3, 6, 9, 8, 7, 4];
+            var current = 0
+            var doing = true
+            $('.stage .box .btn').on('click', function () {
+
+                if (doing) {
+                    doing = false
+                    $('.stage .box .img-box').removeClass('active')
+                    $('.stage .box .img-box').eq(0).addClass('active')
+                    var randomNum = Math.floor(Math.random() * 8)
+                    console.log(randomNum);
+
+                    start(randomNum)
+
+                    function start(n) {
+
+                        var laps = 0
+                        var timer = setInterval(function () {
+                            if (current >= arr.length) {
+                                current = 0
+                                laps++
+                            }
+                            if (laps >= 3 && current == n) {
+                                clearInterval(timer)
+                            }
+                            current++
+                            $('.stage .box .img-box').eq(arr[current - 1] - 1).addClass(
+                                    'active')
+                                .siblings().removeClass('active')
+
+
+                        }, 200)
+                        doing = true
+                        current = 0
+                      
+
+                    }
+                }
+
+            });
+
+            
+        })
+    </script>
+</body>
+
+</html>

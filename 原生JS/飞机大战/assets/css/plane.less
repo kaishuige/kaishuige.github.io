@@ -1,0 +1,108 @@
+body,
+html {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+//所有场景
+.scene() {
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-size: cover;
+    background-position: center 0px;
+    background-repeat: repeat-y;
+    position: relative;
+    // 内部子元素需要基于所在场景定位
+}
+
+.button() {
+    position: absolute;
+    left: 50%;
+    bottom: 60px;
+    width: 200px;
+    margin-left: -100px;
+    line-height: 40px;
+    background: #c4c9ca;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 40px;
+    padding: 0;
+
+}
+
+.stage {
+    width: 200%;
+    height: 100%;
+    // margin-left: -100%;
+    transition: all .3s;
+
+    //游戏开始场景
+    .game-start {
+        .scene;
+        background-image: url('../images/background-start.png');
+
+        button.start {
+            .button;
+            bottom: 100px;
+        }
+    }
+
+    //游戏的主体场景
+    .game {
+        .scene;
+        background-image: url('../images/background-game.png');
+
+        img {
+            position: absolute;
+        }
+
+        .content {
+            width: 100%;
+
+            .score {
+                position: absolute;
+                left: 10px;
+                top: 10px;
+            }
+
+            .dead {
+                transition: all 0.3s;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                // bottom: 0px;
+                text-align: center;
+
+                button {
+                    .button;
+                    position: static;
+                    margin: 10px auto;
+                    z-index: 9;
+                    background: #c3c8c9;
+                }
+            }
+
+            .buff {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+
+                #buffbtn {
+                    z-index: 9;
+                    background: #c3c8c9;
+                    outline: none;
+                    border: 1px solid black;
+                }
+
+            }
+        }
+
+
+
+
+
+    }
+}

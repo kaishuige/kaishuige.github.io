@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .music>div {
+      height: 60px;
+      background-color: #ddd;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .item>div{
+      overflow: hidden;
+      float: left;
+    }
+
+    .picture{
+      width: 60px;
+    }
+
+    .song-title{
+      font-size: 18px;
+      line-height: 40px;
+    }
+
+    .auto-img{
+      width: 100%;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- <button id="aa">aaa</button> -->
+
+  <div id="music" class="music">
+
+  </div>
+
+
+  <script src="./ajax.js"></script>
+  <script>
+
+    window.onload = function () {
+
+      
+
+      //开始截取下标
+      var startIndex = 0;
+
+
+      //每次截取30条数据
+      var count = 30;
+
+      var isHas = true;
+
+      var music = document.getElementById('music');
+
+      //获取缓存数据
+      var musicIds = localStorage.getItem('musicIds');
+
+      //懒加载数据
+      function lazyLoadData(data) {
+        //截取30条数据
+        var musicIdData = data.playlist.tracks.slice(startIndex, startIndex + count);
+        // console.log('musicIdData ==> ', musicIdData);
+
+        //生成列表
+        for (var i = 0; i < musicIdData.length; i++) {
+          var div = document.createElement('div');
+          div.className = 'item';
+          div.dataset.id = musicIdData[i].id; //歌曲id
+          div.dataset.dt = musicIdData[i].dt; //歌曲总时间
+          
+          var html = `<div class="picture">
+            <img class="auto-img" src="${musicIdData[i].al.picUrl}" alt="">
+          </div>
+          <div class="song-title">${musicIdData[i].name}</div>`;
+
+          div.innerHTML = html;
+
+          music.appendChild(div);
+        }
+
+        startIndex += count;
+
+        //如果出现没有截取满30条数据，就可以判定后面没有数据可加载
+        if (musicIdData.length < count) {
+          isHas = false;
+        }
+     
+      }
+
+     
+
+      //如果不存在缓存数据,发起ajax请求
+      if (!musicIds) {
+        //发起ajax请求
+        ajax.ajaxGet({
+
+          //获取所有歌曲的id
+          url: 'http://www.arthurdon.top:3000/playlist/detail?id=24381616',
+
+          isAsync: true,
+
+          success: function (data) {
+
+            var result = JSON.parse(data);
+            console.log('result ==> ', result);
+
+            //加载数据
+            lazyLoadData(result);
+
+            //将数据缓存在浏览器的本地存储 localStorage
+            localStorage.setItem('musicIds', data);
+
+
+          }
+
+        })
+
+      } else {
+
+        //如果存在缓存数据
+        musicIds = JSON.parse(musicIds);
+
+        console.log('musicIds ==> ', musicIds);
+
+        lazyLoadData(musicIds);
+
+      }
+
+    
+    
+      //滚动事件
+      var timers = [];
+      this.onscroll = function () {
+
+        if (!isHas) {
+          console.log('已经没有数据可加载，我是有底线');
+          return;
+        }
+
+        var timer = setTimeout(function () {
+        
+          //保留第一个定时器，清除其他定时器
+          for (var i = 1; i < timers.length; i++) {
+            clearTimeout(timers[i])
+          }
+
+          //逻辑
+          //获取距离页面定边的距离
+          var lastChild = music.querySelector('.item:last-child');
+          var lastOffsetTop = lastChild.offsetTop;
+          // console.log('lastOffsetTop ==> ', lastOffsetTop);
+
+          //获取最后一个节点的高度
+          var lastHeight = lastChild.offsetHeight;
+          // console.log('lastHeight ==> ', lastHeight);
+
+          // 获取最后节点下外边距
+          var lastMarginBottom = parseFloat(getComputedStyle(lastChild).marginBottom);
+          // console.log('lastMarginBottom ==> ', lastMarginBottom);
+
+          //获取滚动条的滚动距离
+          var scrollTop = pageYOffset;
+          // console.log('scrollTop ==> ', scrollTop);
+
+          //获取可视文档内容高度
+          var innerW = innerHeight;
+          // console.log('innerW ==> ', innerW);
+
+          //距离最后一个节点的距离触发加载 (预加载)
+          var alwTop = 200;
+
+          if (innerW + scrollTop - lastHeight - lastMarginBottom + alwTop >= lastOffsetTop) {
+            console.log('懒加载数据');
+            //加载数据
+            lazyLoadData(musicIds);
+
+          }
+
+          timers = [];
+        }, 500)
+
+        timers.push(timer);
+
+
+      }
+    }
+  </script>
+</body>
+
+</html>

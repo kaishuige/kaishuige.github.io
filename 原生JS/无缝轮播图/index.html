@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin:0px;
+				padding:0px;
+			}
+			ul,ol{
+				list-style: none;
+			}
+			.slide{
+				width: 1226px;
+				height: 460px;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+			}
+			.slide ul{
+				width: 5000px;
+				position: absolute;
+				top:0px;
+				left:0px;
+			}
+			.slide ul li{
+				width: 1226px;
+				float: left;
+				height: 460px;
+			}
+			.slide ul li img{
+				width: 100%;
+				height: 460px;
+			}
+			.slide ol{
+				position: absolute;
+				right: 30px;
+				bottom: 30px;
+			}
+			.slide ol li{
+				width: 10px;
+				height: 10px;
+				border: 2px solid #C8EBFA;
+				background: #60C5F1;
+				margin: 0px 10px;
+				float: left;
+			}
+			.slide ol li.con{
+				background: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slide" id="slide">
+			<ul>
+				<li>
+					<img src="img/slider.jpg" >
+				</li>
+				<li>
+					<img src="img/slide1.jpg" >
+				</li>
+				<li>
+					<img src="img/slider.jpg" >
+				</li>
+				<li>
+					<img src="img/slide1.jpg" >
+				</li>
+			</ul>
+			<ol>
+				<li class="con"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+		
+		<script src="js/base.js"></script>
+		<script>
+			
+// 			1.无缝轮播图
+// 			2.自动播放
+			
+			var slider = $("#slide");
+			var uls = slider.children[0].children; //ul li  伪数组
+			var ols = slider.children[1].children; //ol li  伪数组
+			
+			// 第一步: 第一张图片拷贝ul最后面
+			slider.children[0].appendChild(uls[0].cloneNode(true))  //深度拷贝
+			
+			var ul = slider.children[0];//ul 对象
+			
+			// 计算ul总宽度 ul里面li个数5个
+			ul.style.width = ul.children.length * uls[0].offsetWidth + "px";
+			
+			
+			for(var i = 0;i < ols.length;i++){
+				ols[i].index = i; //标记位置
+				ols[i].onmouseover = function(){
+					for(var j = 0;j < ols.length;j++){
+						ols[j].className = "";
+					}
+					this.className = "con";
+					//调用base.js文件方法
+					animate1(ul,-this.index * uls[0].offsetWidth);
+					key = spe = this.index;
+					clearInterval(setclear);
+				}
+				ols[i].onmouseout = function(){
+					setclear = setInterval(timer,3000);
+				}
+			}
+			var key = 0; // 标记位置 轮播图位置
+			var spe = 0; // 标记位置 小圆点位置
+			
+			// 定时器
+			var setclear = setInterval(timer,3000);
+			
+			function timer(){
+				// 向右移动
+				key++;
+				if(key > uls.length - 1){
+					ul.style.left = "0px"; //瞬间切换第一张图片位置
+					key = 1; //接着移动到第二张图片
+				}
+				
+				animate1(ul,-key * uls[0].offsetWidth);
+				
+				spe++;
+				
+				if(spe > ols.length-1){
+					spe = 0; //小圆点正常切换
+				}
+				
+				for(var i = 0; i < ols.length;i++){
+					ols[i].className = "";
+				}
+				ols[spe].className = "con";
+				
+			}
+			
+			
+		</script>
+	</body>
+</html>

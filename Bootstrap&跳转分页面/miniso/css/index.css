@@ -1,0 +1,629 @@
+.stage {
+  padding-top: 27px;
+  position: relative;
+  height: 127px;
+}
+
+.searching {
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 6px;
+}
+
+.virsions {
+  position: relative;
+}
+
+.virsions .nav-list {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  width: 116px;
+  padding: 10px;
+  padding-left: 16px;
+  box-shadow: 3px 3px 10px 1px #ddd;
+  background-color: #fff;
+  display: none;
+  z-index: 2;
+}
+
+.virsions .nav-list > div {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.virsions .nav-list > div:hover {
+  color: #d24a49;
+}
+
+.searching .nav-text {
+  margin: 0 30px 0 15px;
+  font-size: 12px;
+  color: #666;
+}
+
+.samllzoom img {
+  width: 12px;
+  height: 13px;
+  background-size: 100%;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.nav-box .nav-contentbox ul .li-line {
+  float: left;
+  margin-left: 50px;
+  font-weight: bold;
+}
+
+.nav-box .nav-contentbox ul .li-line:first-child {
+  margin-left: 0;
+}
+
+.virsions:hover > .nav-list {
+  display: block;
+}
+
+.menu {
+  display: none;
+}
+
+.dropdown-toggle::after {
+  float: right;
+}
+
+.menu .dropdown .btn {
+  text-align: left;
+}
+
+.pic {
+  display: none;
+}
+
+.nav-brand {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.nav-brand .barand-l {
+  padding: 0;
+  position: relative;
+  background: url("../img/brandconcept.jpg") no-repeat center center;
+}
+
+.nav-brand .barand-l .pic-l {
+  height: 700px;
+  background-size: cover;
+  position: relative;
+}
+
+.nav-brand .barand-l .pic-l h1 {
+  font-size: 48px;
+}
+
+.nav-brand .barand-l .text-barand {
+  position: absolute;
+  top: 50px;
+  right: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-brand .barand-l .text-barand:hover {
+  color: #d10709;
+}
+
+.barand-r .invest-top {
+  border: 1px solid #ddd;
+  height: 342.5px;
+  background: #fff;
+  margin-bottom: 15px;
+}
+
+.top-text {
+  padding-top: 80px;
+}
+
+.top-text h1 {
+  margin-bottom: 20px;
+  font-size: 48px;
+}
+
+.top-text .intro {
+  font-size: 14px;
+  margin: 20px auto;
+}
+
+.intro p {
+  font-size: 14px;
+  color: #666;
+  line-height: 24px;
+  text-align: center;
+}
+
+.learn-btn {
+  margin: 20px auto;
+  width: 162px;
+  height: 45px;
+  border: 1px solid #ddd;
+  text-align: center;
+  line-height: 45px;
+  cursor: pointer;
+}
+
+.learn-btn:hover {
+  background: #d10709;
+}
+
+.learn-btn:hover > .learn {
+  color: #fff;
+}
+
+.learn-btn:hover > .arrows {
+  color: #fff;
+}
+
+.learn {
+  margin-left: 16px;
+  color: #666;
+  font-size: 14px;
+}
+
+.arrows {
+  width: 33px;
+  height: 13px;
+  background: url("../img/grayarrow.png") no-repeat center center;
+  margin-top: 17px;
+  margin-left: 19px;
+  color: #fff;
+}
+
+.barand-r .invest-bot {
+  background: url("../img/distributor.jpg") no-repeat center center;
+  background-size: cover;
+  position: relative;
+  height: 342.5px;
+}
+
+.bot-text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 280px;
+  margin: auto;
+  height: 100px;
+  font-size: 42px;
+  color: #fff;
+  text-align: center;
+  line-height: 94px;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  cursor: pointer;
+}
+
+.bot-text:hover {
+  color: #d10709;
+  border-color: #d10709;
+}
+
+.good-pdt .nice-text h1 {
+  z-index: 2;
+  position: relative;
+}
+
+.good-pdt .nice-text span {
+  background-color: #fff;
+  padding: 0 25px;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.good-pdt .nice-text .niece-line {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  bottom: 0;
+  margin: auto;
+  width: 300px;
+  height: 1px;
+  background-color: #aaa;
+}
+
+.pro-icon {
+  width: 26px;
+  margin: 0 auto;
+}
+
+.pro-icon .light {
+  width: 12px;
+  margin: 0 auto;
+}
+
+.pro-icon .phone {
+  width: 16px;
+  margin: 0 auto;
+}
+
+.pro-icon img {
+  width: 21px;
+  height: 23px;
+}
+
+.pro-title {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #888;
+}
+
+.pro-line {
+  width: 26px;
+  height: 3px;
+  background-color: #d9232e;
+  margin: 0 auto;
+}
+
+.carte {
+  margin-bottom: 50px;
+}
+
+.pro-icon-active,
+.pro-line {
+  display: none;
+}
+
+.col-active {
+  cursor: pointer;
+}
+
+/* .col-active:hover .pro-icon-noactive {
+  display: none;
+}
+
+.col-active:hover .pro-icon-active {
+  display: block;
+}
+
+.col-active:hover .pro-title {
+  color: #d9232e;
+} */
+
+/* .col-active:hover .pro-line {
+  display: block;
+} */
+
+/* .col-origin-active .pro-icon-noactive {
+  display: none;
+}
+
+.col-origin-active .pro-icon-active {
+  display: block;
+}
+
+.col-origin-active .pro-title {
+  color: #d9232e;
+}
+
+.col-origin-active .pro-line {
+  display: block;
+} */
+
+.row .picshow {
+  margin-bottom: 30px;
+}
+
+.Photos-View .pic-title {
+  font-size: 24px !important;
+  font-weight: bold;
+  margin-bottom: 25px !important;
+}
+
+.Photos-View p {
+  color: #666666;
+  font-size: 14px;
+}
+
+.Photos-View {
+  margin-bottom: 50px;
+}
+
+.news-show {
+  margin: 100px 0;
+}
+
+.news-show .news-big {
+  font-size: 18px;
+  color: #333333;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.news-show p {
+  font-size: 14px;
+  color: #666666;
+  line-height: 26px;
+}
+
+.foot {
+  margin-top: 100px;
+  border-top: 2px solid #000000;
+}
+
+.foot-p {
+  margin-top: 40px;
+  color: #666666;
+  font-size: 14px;
+}
+.invest-bot1 {
+  display: none;
+}
+
+.nav-content li {
+  cursor: pointer;
+}
+
+.nav-box .nav-content .i-active {
+  background: #d24a49;
+  transition: all 0.3s ease-in-out;
+}
+.nav-box .nav-content a{
+  color: #888888;
+  text-decoration: none;
+}
+
+.nav-box .nav-content a.span-active {
+  color: #d24a49;
+}
+
+a.span-active:not([href]):not([tabindex]) {
+  color: #d24a49 !important;
+  text-decoration: none !important;
+}
+
+@media screen and (min-width: 1200px) {
+  .carousel-indicators li {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 20px;
+    position: relative;
+    border: none;
+  }
+
+  .carousel-indicators li.active {
+    background-color: RGB(217, 35, 46);
+    box-shadow: 0px 0px 0px 10px RGB(218, 149, 142);
+  }
+
+  .carousel-indicators li > .dashed-line {
+    position: absolute;
+    left: 15px;
+    top: 4px;
+    width: 30px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.897);
+  }
+
+  .nav-box .nav-contentbox {
+    margin-top: -25px;
+  }
+
+  .nav-contentbox {
+    position: absolute;
+    right: 0;
+    top: 104px;
+  }
+
+  .nav-box .line {
+    height: 3px;
+    background: #d24a49;
+  }
+
+  .nav-box .nav-content ul li i {
+    display: block;
+    height: 3px;
+    width: 32px;
+    margin-top: 20px;
+  }
+
+  .pics {
+    display: none;
+  }
+
+  .menu {
+    display: none !important;
+  }
+
+  .box {
+    width: 1200px;
+  }
+
+  .nav-box .nav-content .i-active {
+    background: #d24a49;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-box .nav-content .span-active {
+    color: #d24a49;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .carousel-indicators li {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 20px;
+    position: relative;
+    border: none;
+  }
+
+  .carousel-indicators li.active {
+    background-color: RGB(217, 35, 46);
+    box-shadow: 0px 0px 0px 10px RGB(218, 149, 142);
+  }
+
+  .carousel-indicators li > .dashed-line {
+    position: absolute;
+    left: 15px;
+    top: 4px;
+    width: 30px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.897);
+  }
+  .head {
+    float: left;
+  }
+
+  .head-1 {
+    float: right;
+  }
+
+  .nav-contentbox {
+    width: 75%;
+  }
+
+  .head img {
+    width: 33px !important;
+    height: 40px !important;
+  }
+
+  .nav-content {
+    width: 500px;
+    float: left;
+  }
+
+  .nav-box .nav-content ul {
+    margin-top: 10px;
+  }
+
+  .nav-box .nav-content ul li i {
+    display: block;
+    height: 3px;
+    width: 32px;
+    margin-top: 20px;
+  }
+
+  .menu {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nav-content {
+    display: none;
+  }
+
+  .head-1 {
+    display: none;
+  }
+
+  .pics {
+    padding-top: 7px;
+  }
+
+  .pics .pic {
+    display: block;
+    margin-left: 10px;
+  }
+
+  .pics img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .dropdown {
+    border: none;
+  }
+
+  .head img {
+    width: 33px !important;
+    height: 40px !important;
+  }
+
+  .box {
+    padding: 0 15px;
+  }
+
+  .carte {
+    display: none;
+  }
+
+  .nav-brand .barand-l h1 {
+    font-size: 26px !important;
+  }
+
+  .nav-brand .barand-r h1 {
+    font-size: 26px !important;
+  }
+
+  .invest-bot .bot-text {
+    font-size: 24px !important;
+  }
+
+  .invest-top .top-text {
+    height: 380px;
+  }
+
+  .barand-l {
+    height: 380px !important;
+    background-size: cover !important;
+  }
+
+  .pic-l {
+    height: 380px !important;
+    background-size: cover !important;
+  }
+
+  .invest-top {
+    height: 380px !important;
+  }
+
+  .invest-bot {
+    display: none;
+  }
+
+  .invest-bot1 {
+    display: block;
+    background: url("../img/distributor.jpg") no-repeat center center;
+    background-size: cover;
+    position: relative;
+    height: 380px;
+    width: 100%;
+  }
+
+  .intro p {
+    font-size: 12px !important;
+    width: 100%;
+    text-align: center;
+  }
+  .intro {
+    overflow: hidden !important ;
+  }
+
+  .invest-bot1 .bot-text {
+    font-size: 24px !important;
+    border: none !important;
+  }
+
+  .invest-bot1 .bot-text span {
+    padding: 20px 0;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+  }
+
+  .carousel-indicators li {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    position: relative;
+    border: none;
+    margin: 0 10px;
+  }
+  .carousel-indicators li.active {
+    background-color: RGB(217, 35, 46);
+    box-shadow: 0px 0px 0px 5px RGB(218, 149, 142);
+  }
+}

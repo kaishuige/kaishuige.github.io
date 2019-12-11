@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0 auto;
+            background-color: #f2f2f2;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav {
+            background-color: #fff;
+            padding: 0 100px;
+            margin-bottom: 10px;
+        }
+
+        .list {
+            overflow: hidden;
+        }
+
+        .list>li {
+            float: left;
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .list>li>span {
+            padding: 5px 20px;
+            border-radius: 15.5px;
+            cursor: pointer;
+        }
+
+        .list>li>span.type-active {
+            background-color: #e4393c;
+            color: #fff;
+        }
+
+        .pros {
+            overflow: hidden;
+        }
+
+        .pros>.item {
+            float: left;
+            width: 212px;
+            background-color: #fff;
+            margin-right: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            height: 291px;
+
+        }
+
+        .pros .item:nth-child(5n) {
+            margin-right: 0;
+        }
+
+        .img-box {
+            width: 160px;
+            margin: 0 auto;
+        }
+
+        .auto-img {
+            width: 100%;
+            display: block;
+
+        }
+
+        .title {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        .info {
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+
+        }
+
+        .subtag {
+            font-size: 12px;
+            line-height: 21px;
+
+        }
+
+        .plus {
+            font-size: 12px;
+            line-height: 21px;
+
+        }
+
+        .plus-text {
+            margin-left: 10px;
+            color: #c78b0c;
+        }
+
+        .price {
+            color: #e4393c;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="nav">
+            <ul class="list">
+                <li data-type="jingxuan"><span class="type-active">精选</span></li>
+                <li data-type="zhineng"><span>智能先锋</span></li>
+                <li data-type="jujia"><span>居家优品</span></li>
+                <li data-type="shenghuo"><span>生活百货</span></li>
+                <li data-type="shishang"><span>时尚达人</span></li>
+            </ul>
+        </div>
+
+        <div class="pros">
+
+        </div>
+    </div>
+
+    <script src="./products.js"></script>
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            //获取当前商品类型数据
+            function getTypeData() {
+                //获取当前商品类型
+                var currentType = $('.type-active').parent().data('type')
+                console.log(currentType);
+
+                //根据当前商品类型获取商品数据
+                var currentData = products[currentType]
+
+                for (var i = 0; i < currentData.length; i++) {
+                    var item = $(`<div class="item">
+              <div class="img-box">
+                <img class="auto-img" src="${currentData[i].img}" alt="">
+              </div>
+              <div class="title">${currentData[i].title}</div>
+              <div class="info">
+                <div class="fl price">${currentData[i].price}</div>
+                <div class="fr">
+                  <span class="subtag ${currentData[i].isSubtag ? '' : 'hide'}">${currentData[i].subtag}</span>
+                  <span class="plus ${currentData[i].isPlus ? '' : 'hide'}"><span>&yen;${currentData[i].plusPrice}</span><span class="plus-text">plus</span></span>
+                </div>
+              </div>
+            </div>`);
+
+                    $('.pros').append(item);
+                }
+            }
+
+            getTypeData()
+
+            $('.list li').click(function () {
+                var $span = $(this).find('span')
+
+                //判断当前span是否处于激活状态
+                if ($span.hasClass('type-active')) {
+                    return
+                }
+                $('.type-active').removeClass('type-active')
+
+                $span.addClass('type-active')
+
+                $('.pros').empty()
+
+                //获取当前商品类型数据
+                getTypeData();
+            })
+
+        })
+    </script>
+</body>
+
+</html>

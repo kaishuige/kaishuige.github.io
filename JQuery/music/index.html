@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/minireset.css/0.0.2/minireset.min.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./style.css">
+    <style>
+    audio{
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="ui">
+            <div class="img">
+                <!-- <img src="http://www.jq22.com/demo/HTML5Player-150211220843/img/1.jpg" alt=""> -->
+            </div>
+            <div class="ctrl">
+                <div class="tag">
+                    <!-- <li>
+                        <h3>chenparty dj.mp3</h3>
+                        <p>德国童声</p>
+                        <p>chenparty 超好听的德国童声 dj.mp3</p>
+                    </li> -->
+                </div>
+                <div class="control">
+                    <div class="left">
+                        <span><i class="fa fa-backward"></i></span>
+                        <span><i class="fa fa-play"></i> <i class="fa fa-pause"></i></span>
+                        <span><i class="fa fa-forward"></i></span>
+                    </div>
+                    <span><img src="http://www.jq22.com/demo/HTML5Player-150211220843/css/images/volume.png"
+                            alt=""></span>
+                    <div class="volume-right">
+                        <div class="progress"></div>
+                        <input type="range" value="0" min="0" max="100" step="1" />
+                    </div>
+                </div>
+                <label>
+                    <div class="progress"></div>
+                    <input type="range" value="0" min="0" max="100" step="1" />
+                </label>
+                <span class="current">0:00</span>
+            </div>
+        </div>
+        <ul class="playlist">
+            <li class="active">德国 - 德国第一装甲师进行曲</li>
+            <li>魔兽世界 - 亡灵序曲</li>
+            <li>德国童声 - chenparty dj.mp3</li>
+        </ul>
+        <audio src="" autoplay controls style="height: 30px;"></audio>
+    </div>
+    <script src="./jquery-3.4.1.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

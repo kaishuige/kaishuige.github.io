@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .stage {
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+            position: relative;
+
+        }
+
+        .stage .btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 30px;
+            color: cornflowerblue;
+            letter-spacing: 10px;
+            margin-left: -80px;
+            margin-top: -20px;
+            display: none;
+        }
+
+        @media screen and (max-width: 767px) {
+            .stage {
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+                position: relative;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <canvas id="canvas"></canvas>
+        <div class="btn">不服再来</div>
+    </div>
+
+    <!-- <script src="./bootstrap.min.js"></script>
+    <script src="./popper.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="./preloadsheet.js"></script>
+    <script>
+        //球球的随机颜色
+        var colorArr = [
+            "#FF9966",
+            "#FF6666",
+            "#99CCFF",
+            "#666633",
+            "#6699CC",
+            "#CCCCFF",
+            "#CC3399",
+            "#66CCCC",
+            "#CC0066",
+            "blue",
+            "red",
+            "blueviolet"
+        ];
+        var img = new Image()
+        img.src = './preloadsheet.png'
+
+        //随机颜色
+        function randomColor() {
+            return colorArr[Math.floor(Math.random() * colorArr.length)]
+        }
+
+        var canvas = document.querySelector('#canvas')
+        var ctx = canvas.getContext("2d");
+
+        var stage = document.querySelector('.stage')
+        var telaW = stage.offsetWidth
+        var telaH = stage.offsetHeight
+
+
+        var game = {
+            stageW: telaW,
+            stageH: telaH,
+            score: 0,
+            center: {
+                x: telaW / 2,
+                y: telaH / 2
+            }
+        }
+
+        //画布的大小
+        canvas.width = game.stageW
+        canvas.height = game.stageH
+
+
+        //背景图
+        function drawBg() {
+            ctx.fillStyle = '#eaeaea'
+            ctx.fillRect(0, 0, game.stageW, game.stageH)
+        }
+
+
+        //游戏准备状态 2个球 一个点击按钮
+        var bigBoll = {
+            r: 50,
+            maxR: 50,
+            minR: 40,
+            zoom: false,
+            color: randomColor()
+        }
+
+        var smallBoll = {
+            r: 40,
+            maxR: 40,
+            minR: 30,
+            zoom: false,
+            color: randomColor()
+        }
+
+        function updateZoom(obj) {
+            if (!obj.zoom) {
+                obj.r -= 0.3;
+                obj.zoom = obj.r <= obj.minR ? true : false;
+            } else {
+                obj.r += 0.3;
+                obj.zoom = obj.r >= obj.maxR ? false : true;
+            }
+        }
+
+        //画出来 
+        function drawCircle(x, y, r, color, fill) {
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, 2 * Math.PI);
+            ctx.closePath();
+            if (fill) {
+                ctx.fillStyle = color;
+                ctx.fill();
+            } else {
+                ctx.strokeStyle = color;
+                ctx.stroke();
+            }
+
+        }
+
+        // 开始按钮参数
+        var start_btn_png = {
+            name: "start_btn_png",
+            w: (game.stageW * 2) / 4,
+            h: ((file["start_btn_png"].h / file["start_btn_png"].w) * (game.stageW * 2)) / 4,
+            x: (game.stageW - (game.stageW * 2) / 4) / 2,
+            y: game.stageH / 2 + 80
+        };
+
+        //画出按钮
+        function drawBtn(obj) {
+            ctx.drawImage(
+                img,
+                file[obj.name].x,
+                file[obj.name].y,
+                file[obj.name].w,
+                file[obj.name].h,
+                obj.x,
+                obj.y,
+                obj.w,
+                obj.h
+            );
+        }
+
+        //游戏准备
+        function ready() {
+            //准备阶段的2个球
+            updateZoom(bigBoll)
+            updateZoom(smallBoll)
+            drawCircle(game.center.x - bigBoll.minR, game.center.y - bigBoll.maxR, bigBoll.r, bigBoll.color, true)
+            drawCircle(game.center.x + smallBoll.minR, game.center.y - smallBoll.maxR, smallBoll.r, smallBoll.color,
+                true)
+
+            //点击按钮
+            drawBtn(start_btn_png)
+        }
+
+        //我方球球
+        function myBoll() {
+            this.x = game.center.x
+            this.y = game.center.y
+            this.r = 10
+            this.color = 'black'
+            this.loop = {
+                r: this.r,
+                maxR: this.r + 10,
+                minR: this.r,
+                color: randomColor(),
+                zoom: true
+
+            }
+        }
+
+        //随机数
+        function randomNum(m, n) {
+            return Math.round(Math.random() * (n - m) + m)
+        }
+
+        function randomFloor(m, n) {
+            return Math.random() * (n - m) + m
+        }
+        //敌方球球
+        function Boll(m, n) {
+            this.r = randomNum(m, n);
+            this.color = randomColor();
+            this.over = false;
+        }
+
+        function checkCrash(boll) {
+            // 勾股定理 毕达哥拉斯定理
+            var s = Math.sqrt((boll.x - meBoll.x) * (boll.x - meBoll.x) + (boll.y - meBoll.y) * (boll.y - meBoll.y));
+            if (s < boll.r + meBoll.r && !boll.over) {
+                console.log("xx");
+                return true;
+            }
+        }
+
+        // 球球原始位置生成
+        Boll.prototype.generateCoord = function () {
+            this.x = -this.r;
+            // game.stageW + this.r
+            // 随机数代表方向
+            var num = randomNum(0, 3);
+            switch (num) {
+                case 0:
+                    // 从上面
+                    this.x = randomNum(-this.r, game.stageW + this.r);
+                    this.y = -this.r;
+                    break;
+                case 1:
+                    // 从右面
+                    this.x = game.stageW + this.r;
+                    this.y = randomNum(-this.r, game.stageH + this.r);
+
+                    break;
+                case 2:
+                    // 从下面
+                    this.x = randomNum(-this.r, game.stageW + this.r);
+                    this.y = game.stageH + this.r;
+                    break;
+
+                case 3:
+                    // 左边
+                    this.x = -this.r;
+                    this.y = randomNum(-this.r, game.stageH + this.r);
+                    break;
+            }
+        };
+
+
+        var bollspeed = 5
+        // 球球速度生成
+        Boll.prototype.generateSpeed = function () {
+            if (this.x > game.stageW) {
+                this.sx = -randomFloor(0, bollspeed);
+                this.sy = randomFloor(-bollspeed, bollspeed);
+            }
+            if (this.x < 0) {
+                this.sx = randomFloor(0, bollspeed);
+                this.sy = randomFloor(-bollspeed, bollspeed);
+            }
+            if (this.y > game.stageH) {
+                this.sx = randomFloor(-bollspeed, bollspeed);
+                this.sy = -randomFloor(0, bollspeed);
+            }
+            if (this.y < 0) {
+                this.sx = randomFloor(-bollspeed, bollspeed);
+                this.sy = randomFloor(0, bollspeed);
+            }
+        };
+
+        //球球移动
+        Boll.prototype.move = function () {
+            this.x = this.x + this.sx
+            this.y = this.y + this.sy
+        }
+
+        //球球超出
+        Boll.prototype.checkOver = function () {
+            var rightOver = this.x > game.stageW + this.r;
+            var leftOver = this.x < -this.r;
+            var bottomOver = this.y > game.stageH + this.r;
+            var topOver = this.y < -this.r;
+            this.over = rightOver || leftOver || topOver || bottomOver;
+        }
+
+        var meBoll = new myBoll()
+
+        // 所有球球数组
+        var bollsArr = [];
+        var frames = 0;
+        var score = 0;
+
+        //游戏开始
+        function start() {
+            frames++
+
+            updateZoom(meBoll.loop)
+
+            drawCircle(meBoll.x, meBoll.y, meBoll.r, meBoll.color, true)
+            drawCircle(meBoll.x, meBoll.y, meBoll.loop.r, meBoll.loop.color, false)
+
+            //生成新的球球
+            if (!(frames % 5)) {
+                var newBoll = new Boll(meBoll.r - 4, meBoll.r + 10);
+                newBoll.generateCoord();
+                newBoll.generateSpeed();
+                bollsArr.push(newBoll);
+            }
+
+            // 遍历所有敌方
+            bollsArr.forEach(function (boll, index) {
+                // 移动所有 小球
+                boll.move();
+                // 根据新位置画
+                drawCircle(boll.x, boll.y, boll.r, boll.color, true);
+
+                // 检测碰撞
+                if (checkCrash(boll)) {
+                    // 判断半径
+                    if (boll.r > meBoll.r) {
+                        // 游戏结束
+                        gameover();
+                    } else {
+                        // 标记死亡（超出）
+                        boll.die = true;
+                        console.log(boll);
+
+                        // 我方球球半径增加 圆环半径也要增加
+                        var addR = boll.r / 20;
+                        // 不要直接加吃掉的小球半径 太大了
+                        meBoll.r += addR;
+                        meBoll.loop.r += addR;
+                        meBoll.loop.minR += addR;
+                        meBoll.loop.maxR += addR;
+
+                        // 增加score
+                        score++;
+                    }
+                }
+
+                // 检测标记超出
+                boll.checkOver();
+            });
+
+            bollsArr.forEach(function (boll, index) {
+                if (boll.over || boll.die) {
+                    bollsArr.splice(index, 1);
+                    // console.log('shanchu');
+                }
+            });
+
+            // 更新得分
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "#333333";
+            ctx.fillText(score, 10, 50);
+        }
+
+        //点击开始游戏
+        canvas.onclick = function (e) {
+            console.log(e);
+            //点击范围 x在点击图片的x坐标点————x+点击按钮宽度坐标 y同理
+            var x = event.offsetX >= start_btn_png.x && event.offsetX <= start_btn_png.x + start_btn_png.w
+            var y = event.offsetY >= start_btn_png.y && event.offsetY <= start_btn_png.y + start_btn_png.h
+            console.log(x, y);
+
+            if (x && y) {
+                console.log('冲');
+                game.start = true
+
+
+            }
+
+            //让我的球跟着鼠标移动
+            if (Math.abs(event.offsetX - game.center.x) < 5 && Math.abs(event.offsetY - game.center.y) < 5) {
+                canvas.onmousemove = function (event) {
+                    console.log(event.offsetX, event.offsetY);
+                    // 根据鼠标移动位置 更新我方 位置
+                    meBoll.x = event.offsetX;
+                    meBoll.y = event.offsetY;
+                };
+            }
+
+            if (navigator.maxTouchPoints) {
+                canvas.ontouchmove = function (event) {
+                    // console.log(event);
+                    meBoll.x = event.touches[0].pageX;
+                    meBoll.y = event.touches[0].pageY;
+                };
+            }
+
+        }
+
+
+
+        var btn = document.querySelector('.stage .btn')
+
+        function gameover() {
+            clearInterval(timer)
+            btn.style.display = 'block'
+            btn.onclick = function () {
+                window.location.reload()
+            }
+
+        }
+
+        //游戏主体
+        var timer = setInterval(function () {
+            ctx.clearRect(0, 0, game.stageW, game.stageH)
+            drawBg()
+
+            if (!game.start) {
+                ready()
+            } else {
+                start()
+            }
+
+        }, 30)
+    </script>
+</body>
+
+</html>

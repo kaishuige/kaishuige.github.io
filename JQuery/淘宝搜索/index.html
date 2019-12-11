@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1200px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .search {
+            width: 975px;
+            border: 2px solid #ff4200;
+            box-shadow: none;
+            text-indent: 10px;
+            height: 34px;
+            padding: 0;
+            font-size: 14px;
+            outline: none;
+
+        }
+
+        .btn {
+            width: 100px;
+            height: 38px;
+            background-color: #ff4200;
+            border: none;
+            outline: none;
+            position: absolute;
+            right: 123px;
+            top: 0;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+        }
+        li{
+            list-style: none;
+            width: 979px;
+            height: 30px;
+            background-color:lightblue;
+            color: chocolate;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input class="search" type="text" placeholder="请输入要搜索的词">
+        <button class="btn">搜索</button>
+        <div class="hint">
+
+        </div>
+    </div>
+
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        function xxx(params) {
+            console.table(params.result);
+            document.querySelector('.box .hint').innerHTML = ''
+            params.result.forEach(function (element, index) {
+                var node = document.createElement('li')
+                node.innerText = element[0]
+                document.querySelector('.box .hint').appendChild(node)
+            });
+
+        }
+
+        document.querySelector('.search').oninput = function () {
+            console.log(this.value);
+            var node = document.createElement('script')
+            node.src = 'https://suggest.taobao.com/sug?code=utf-8&q=' + this.value + '&callback=xxx'
+            document.body.appendChild(node)
+            // console.log(node);
+        }
+    </script>
+</body>
+
+</html>

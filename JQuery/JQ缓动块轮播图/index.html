@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+<style>
+  body {
+    background: gray;
+  }
+
+  .stage {
+    width: 400px;
+    margin: 40px auto 0;
+    position: relative;
+  }
+
+  .photo {
+    width: 400px;
+    overflow: hidden;
+  }
+
+  ul,
+  li,
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ul {
+    width: 1600px;
+    position: relative;
+  }
+
+  ul li {
+    float: left;
+    width: 25%;
+  }
+
+  ul li img {
+    width: 100%;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  .srcoll {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    background: aqua;
+  }
+
+  ol {
+    height: 50px;
+  }
+
+  ol li {
+    float: left;
+    width: 25%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
+
+  #hak {
+    display: block;
+    width: 25%;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+    border: 1px solid white;
+    background: burlywood;
+  }
+
+  .arrow {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 50%;
+    margin-top: -25px;
+  }
+
+  .arrow div {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-size: cover;
+  }
+
+  .prev {
+    float: left;
+    background: url(./prev.png) center center;
+  }
+
+  .next {
+    float: right;
+    background: url(./next.png) center center;
+  }
+</style>
+
+<body>
+  <div class="stage">
+    <div class="photo">
+      <ul class="images">
+        <li class="active"><img src="./slidepic1.png" alt="" /></li>
+        <li><img src="./slidepic2.png" alt="" /></li>
+        <li><img src="./slidepic3.png" alt="" /></li>
+        <li><img src="./slidepic4.png" alt="" /></li>
+      </ul>
+    </div>
+    <div class="srcoll">
+      <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+      <span id="hak"></span>
+    </div>
+    <div class="arrow">
+      <div class="prev">
+      </div>
+      <div class="next">
+
+      </div>
+    </div>
+  </div>
+  <script src="./jquery-3.4.1.js"></script>
+  <script>
+    $(function () {
+      var index = 0
+      var w = $("ol li").width() + 2;
+      var imgW = $(".photo").width();
+      start()
+      a = setInterval(function () {
+        index++;
+        index = index > 3 ? 0 : index;
+        start();
+      }, 1500);
+
+      function start() {
+        console.log(index);
+        $("#hak").css({
+          left: index * w,
+          transition: "all" + " " + "1s"
+        });
+
+        $("ul").css({
+          left: imgW * -index,
+          transition: "all 1s"
+        });
+      }
+
+
+      $("ol li").click(function () {
+        index = $(this).index();
+        start();
+      });
+      $(".stage").mouseover(function () {
+        clearInterval(a);
+      });
+      $(".stage").mouseout(function () {
+        a = setInterval(function () {
+          index++;
+          index = index > 3 ? 0 : index;
+          start();
+        }, 1500);
+      });
+      $(".prev").click(function (e) {
+        index--
+        index = index < 0 ? 3 : index
+        start()
+      });
+      $(".next").click(function (e) {
+        index++
+        index = index > 3 ? 0 : index
+        start()
+      });
+    });
+  </script>
+</body>
+
+</html>

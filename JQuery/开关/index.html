@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 30px;
+            background: #b2b2b2;
+            border-radius: 40px;
+            position: relative;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .box .dot {
+            width: 28px;
+            height: 28px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+
+        }
+        .box .txt-OFF {
+            position: absolute;
+            right: 30px;
+            top: 5px;
+            color: white;
+        }
+        .box .txt-ON {
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="dot"></div>
+        <div class="txt-ON">ON</div>
+        <div class="txt-OFF">OFF</div>        
+    </div>
+    <p>控制开关:<input class="control" type="checkbox" /></p>
+
+    <!-- <div class="box xxx">
+        <div class="dot"></div>
+        <div class="txt-ON">ON</div>
+        <div class="txt-OFF">OFF</div>        
+    </div>
+    <p>控制开关:<input class="control" type="checkbox" /></p> -->
+  
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            var w = $('.box').width()
+            // console.log(w);
+            var w2 = $('.box .dot').width()
+            // console.log(w2);           
+            //向右边移的长度 
+            var Distance = (w - w2) - 3 + 'px'
+            // console.log(Distance);           
+            //点击切换开关
+            $('.box').click(function () {
+                if ($('.control').prop('checked') == false) {
+                    offbtn()
+                } else {
+                    onbtn()
+                }
+            })
+            //开关控制
+            $('.control').change(function () {
+                if ($(this).prop('checked') == true){
+                    offbtn()
+                }else{
+                    onbtn()
+                }
+            });
+            //开的时候
+            function offbtn() {
+                // console.log('xxx');
+
+                $('.box .dot').animate({
+                    marginLeft: Distance,
+                })
+                $('.box').css('background', "#75b936")
+                $(".box .txt-OFF").animate({
+                    left: 100,
+                })
+                $('.box .txt-ON').animate({
+                    left: 30,
+                })
+                $('.control').prop('checked', true)
+            }
+            //关的时候
+            function onbtn() {
+                // console.log("haha");
+                $('.box .dot').animate({
+                    marginLeft: 0,
+                })
+                $('.box').css('background', " #b2b2b2")
+                $(".box .txt-OFF").animate({
+                    left: 40,
+                })
+                $('.box .txt-ON').animate({
+                    left: -40,
+                })
+                $('.control').prop('checked', false)
+            }
+        })
+    </script>
+</body>
+
+</html>

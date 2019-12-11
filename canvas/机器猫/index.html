@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            margin-left: 600px;
+            /* background: red; */
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <div id="put" style="width: 50px" height="20px"></div>
+    <script>
+        var canvas = document.querySelector('#canvas')
+        canvas.onmousemove = function (event) {
+            // console.log(event);
+            console.log(event.offsetX, event.offsetY);
+
+        }
+        var cxt = canvas.getContext('2d')
+        cxt.beginPath();
+        cxt.lineWidth = 1;
+        cxt.strokeStyle = 'black';
+        cxt.arc(300, 300, 300, 0.3 * Math.PI, 0.7 * Math.PI, true);
+        cxt.fillStyle = '#0bb0da';
+        cxt.fill();
+        cxt.stroke();
+
+        cxt.beginPath();
+        cxt.fillStyle = 'white';
+        cxt.moveTo(160, 140);
+        cxt.quadraticCurveTo(-50, 336, 150, 542);
+        cxt.lineTo(450, 542)
+        cxt.quadraticCurveTo(650, 336, 440, 140)
+        cxt.lineTo(160, 140)
+        cxt.fill();
+        cxt.stroke();
+
+        cxt.beginPath()
+        cxt.lineWidth = 1
+        cxt.fillStyle = 'white'
+        cxt.arc(230, 140, 70, 0, 2 * Math.PI)
+        cxt.fill();
+        cxt.stroke();
+
+        cxt.beginPath()
+        cxt.lineWidth = 1
+        cxt.fillStyle = 'white'
+        cxt.arc(370, 140, 70, 0, 2 * Math.PI)
+        cxt.fill();
+        cxt.stroke();
+
+        cxt.beginPath()
+        cxt.lineWidth = 1
+        cxt.fillStyle = 'black'
+        cxt.arc(250, 170, 20, 0, 2 * Math.PI)
+        cxt.fill();
+        cxt.stroke();
+
+        cxt.beginPath()
+        cxt.lineWidth = 1
+        cxt.fillStyle = 'black'
+        cxt.arc(350, 170, 20, 0, 2 * Math.PI)
+        cxt.fill();
+        cxt.stroke();
+
+        cxt.beginPath()
+        cxt.lineWidth = 2
+        cxt.fillStyle = '#ebbba5'
+        cxt.arc(300, 216, 32, 0, 2 * Math.PI)
+        cxt.fill();
+        cxt.stroke();
+
+        cxt.beginPath()
+        cxt.lineWidth = 1
+        cxt.fillStyle = 'black'
+        cxt.moveTo(300, 260)
+        cxt.lineTo(300, 460)
+
+        // 左边
+        cxt.moveTo(230,300)
+        cxt.lineTo(100,280)
+        cxt.moveTo(230,330)
+        cxt.lineTo(100,330)
+        cxt.moveTo(230,360)
+        cxt.lineTo(100,380);
+
+        // 右边
+        cxt.moveTo(370,300)
+        cxt.lineTo(500,280)
+        cxt.moveTo(370,330)
+        cxt.lineTo(500,330)
+        cxt.moveTo(370,360)
+        cxt.lineTo(500,380);
+
+        cxt.moveTo(110,420)
+        cxt.quadraticCurveTo(300, 600, 490, 420)       
+        cxt.stroke()
+
+        cxt.beginPath()
+        cxt.moveTo(65, 542);
+        cxt.lineTo(535, 542);
+        cxt.lineTo(535, 580);
+        cxt.lineTo(65,580)
+        cxt.lineTo(65,542)
+        // cxt.arcTo(535, 542, 535, 580, 19);
+        // cxt.arcTo(535, 580, 535, 542, 19);
+        cxt.fillStyle = '#b13209';
+        cxt.fill();
+        cxt.stroke();
+
+
+
+
+    </script>
+</body>
+
+</html>

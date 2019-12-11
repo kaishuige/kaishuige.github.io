@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #250b0b;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .stage {
+            width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .stage .tab-btn {
+            width: 200px;
+            padding: 0;
+            margin: 0;
+            margin-top: 60px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .stage .tab-btn li {
+
+            width: 100%;
+            height: 71px;
+            background-color: #5c5e67;
+            text-align: center;
+            line-height: 71px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+            transition: all 0.3s;
+        }
+
+        .stage .tab-btn li.active {
+            background-color: #009fe9;
+            width: 200px;
+            height: 111px;
+            text-align: center;
+            line-height: 111px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .tab-content {
+            margin-top: 50px;
+            width: 950px;
+            height: 630px;
+            overflow: hidden;
+        }
+
+        .tab-content .content-img {
+
+            /* display: none; */
+            font-size: 0;
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+
+        /* .tab-content .content-img.active {
+            display: block;
+        } */
+
+        .tab-content img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <ul class="tab-btn fl">
+            <li class="active">tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+            <li>tab4</li>
+            <li>tab5</li>
+            <li>tab6</li>
+            <li>tab7</li>
+        </ul>
+        <div class="tab-content fr" id="tab-content">
+            <div class="content-img active"><img src="./a1.png" alt=""></div>
+            <div class="content-img"><img src="./a2.png" alt=""></div>
+            <div class="content-img"><img src="./a3.png" alt=""></div>
+            <div class="content-img"><img src="./a4.png" alt=""></div>
+            <div class="content-img"><img src="./a5.png" alt=""></div>
+            <div class="content-img"><img src="./a6.png" alt=""></div>
+            <div class="content-img"><img src="./a7.png" alt=""></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.stage .tab-btn li').each(function () {
+                $('.stage .tab-btn li').on('mouseover', function () {
+                    $(this).addClass('active').siblings().removeClass('active')
+                    var i = $(this).index()
+                    $('.stage .tab-content .content-img')
+                        .eq(0).css("margin-top", -i * 630 +'px')
+
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

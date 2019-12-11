@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 1000px;
+            height: 380px;
+            margin: 50px auto 0 auto;
+            position: relative;
+        }
+
+        .slide {
+            width: 1000px;
+            height: 380px;
+            position: relative;
+        }
+
+        .slide ul li img {
+            width: 100%;
+        }
+
+        .slide ul li {
+            position: absolute;
+            /* //1 */
+            /* top: 56px;
+            width: 380px;
+            left: 0;
+            opacity: 0.3;
+            z-index: 1;
+            /* //2 */
+            /* top: 41px;
+            width: 421px;
+            left: 56px;
+            opacity: 0.5;
+            z-index: 2; */
+            /* //3 */
+            /* top: 24px;
+            width: 468px;
+            left: 200px;
+            opacity: 0.8;
+            z-index: 3; */
+            /* //4 */
+            /* top: 5px;
+            width: 520px;
+            left: 296px;
+            opacity: 1;
+            z-index: 4;  */
+            /* //5 */
+            /* top: 24px;
+            width: 468px;
+            right: 200px;
+            opacity: 0.8;
+            z-index: 3; */
+            /* //6 */
+            /* top: 41px;
+            width: 421px;
+            right: 56px;
+            opacity: 0.5;
+            z-index: 2; */
+            /* //7 */
+            /* top: 56px;
+            width: 380px;
+            right: 0;
+            opacity: 0.3;
+            z-index: 1; */
+        }
+
+        .slide .arrow {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            height: 100px;
+            margin-top: -56px;
+            z-index: 6;
+            opacity: 0;
+        }
+
+        .arrow .prev {
+            background: url('./img/prev.png')no-repeat center center;
+            width: 76px;
+            height: 70px;
+            display: block;
+            float: left;
+        }
+
+        .arrow .next {
+            background: url('./img/next.png')no-repeat center center;
+            width: 76px;
+            height: 70px;
+            display: block;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="slide" id="slide">
+            <ul>
+                <li><a href=""><img src="./img/1.jpg" alt=""></a></li>
+                <li><a href=""><img src="./img/2.jpg" alt=""></a></li>
+                <li><a href=""><img src="./img/3.jpg" alt=""></a></li>
+                <li><a href=""><img src="./img/4.jpg" alt=""></a></li>
+                <li><a href=""><img src="./img/5.jpg" alt=""></a></li>
+                <li><a href=""><img src="./img/6.jpg" alt=""></a></li>
+                <li><a href=""><img src="./img/7.jpg" alt=""></a></li>
+            </ul>
+            <div class="arrow">
+                <a href="javascript:;" class="prev"></a>
+                <a href="javascript:;" class="next"></a>
+            </div>
+        </div>
+    </div>
+    <script src="./base.js"></script>
+    <script>
+        var obj = [{
+                top: 56,
+                width: 380,
+                left: 0,
+                opacity: 30,
+                z: 1,
+            },
+            {
+                top: 42,
+                width: 421,
+                left: 80,
+                opacity: 50,
+                z: 2,
+            },
+            {
+                top: 25,
+                width: 468,
+                left: 160,
+                opacity: 100,
+                z: 3,
+            },
+            {
+                top: 5,
+                width: 520,
+                left: 240,
+                opacity: 100,
+                z: 4,
+            },
+            {
+                top: 25,
+                width: 468,
+                left: 372,
+                opacity: 100,
+                z: 3,
+            },
+            {
+                top: 42,
+                width: 421,
+                left: 498,
+                opacity: 50,
+                z: 2,
+            },
+            {
+                top: 56,
+                width: 380,
+                left: 620,
+                opacity: 30,
+                z: 1,
+            },
+        ]
+        var slide = document.querySelector('.slide')
+        var lis = slide.children[0].children
+        var box = document.querySelector('.box')
+        var arrow = document.querySelector('.arrow')
+        var as = arrow.children
+        var btn = true
+        // prev.onclick=prevpic
+        // next.onclick=prevpic
+        // 遍历对象添加触发事件
+        for (l in as) {
+            as[l].onclick = function () {
+                if (btn) {
+                    btn = false
+                    changepic(this.className == "prev");
+                }
+            }
+        }
+        changepic();
+
+        function changepic(zq) {
+            if (zq) {
+                obj.unshift(obj.pop())
+            } else {
+                obj.push(obj.shift())
+            }
+            for (var i = 0; i < lis.length; i++) {
+                animate(lis[i], {
+                        'width': obj[i].width,
+                        'top': obj[i].top,
+                        'left': obj[i].left,
+                        // 'right':obj[i].right,  
+                        'opacity': obj[i].opacity,
+                        'zIndex': obj[i].z,
+                    },
+                    function () {
+                        btn = true
+                    }
+                )
+            }
+        }
+
+        clearInterval(timer)
+
+        var timer = setInterval(function () {
+            obj.push(obj.shift())
+            for (var i = 0; i < lis.length; i++) {
+                animate(lis[i], {
+                    'width': obj[i].width,
+                    'top': obj[i].top,
+                    'left': obj[i].left,
+                    // 'right':obj[i].right,  
+                    'opacity': obj[i].opacity,
+                    'zIndex': obj[i].z,
+                }, )
+            }
+        }, 2000);
+
+        box.onmouseover = function () {
+            animate(arrow, {
+                'opacity': 100
+            })
+            clearInterval(timer)
+        }
+
+        box.onmouseout = function () {
+            animate(arrow, {
+                'opacity': 0
+            })
+            // obj.unshift(obj.pop())
+            timer = setInterval(changepic, 2000)
+        }
+    </script>
+</body>
+
+</html>

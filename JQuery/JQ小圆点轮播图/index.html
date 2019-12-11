@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .stage {
+            height: 700px;
+            position: relative;
+        }
+
+        .stage .content {
+            height: 700px;
+        }
+
+        .stage .content img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: all 1S;
+        }
+
+        .stage .content img.active {
+            opacity: 1;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        .controller span {
+            position: absolute;
+            top: 50%;
+            color: red;
+            background: black;
+            text-align: center;
+            opacity: 0.5;
+            transition: .3s;
+            margin-top: -55px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .controller span:hover {
+            opacity: 1;
+        }
+
+        .controller span.prev {
+            width: 48px;
+            height: 110px;
+            left: 0px;
+        }
+
+        .controller span.next {
+            width: 48px;
+            height: 110px;
+            right: 0px;
+            
+        }
+
+        .controller span img {
+            width: 28px;
+            height: 56px;
+            padding-top: 25px;
+
+        }
+
+        .stage .dot {
+            position: absolute;
+            bottom: 100px;
+            width: 100%;
+            text-align: center;
+
+        }
+
+        .stage .dot i {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            background: white;
+            margin: 0 15px;
+            border-radius: 50%;
+
+        }
+
+        .stage .dot i.active {
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="content">
+            <img class="active" src="./img/lunbo1.jpg" alt="">
+            <img src="./img/lunbo2.jpg" alt="">
+            <img src="./img/lunbo3.jpg" alt="">
+        </div>
+        <div class="dot" id="dot">
+
+
+        </div>
+        <div class="controller">
+            <span class="prev"><img src="./img/preImg.png" alt=""></span>
+            <span class="next"><img src="./img/nexImg.png" alt=""></span>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var current = 0
+            var dot = $('.stage .dot')
+            //创建小圆点
+            $('.stage .content img').each(function (i, e) {
+                var node = $("<i></i>")
+                console.log(node);
+                node.index = e
+                $(node).appendTo(dot)
+
+            })
+            var dots = $('.stage .dot i')
+            //第一个小圆点高量
+            $(dots).eq(0).addClass('active')
+
+            $(dots).on('click', function () {
+                current = $(this).index()
+
+                console.log($(this).index());
+                $(dots).removeClass('active')
+                $(this).addClass('active')
+                $('.stage .content img').eq($(this).index()).addClass('active').siblings().removeClass(
+                    'active')
+            })
+            $('.stage .controller .next').on('click', function () {
+                // console.log(current);
+                // console.log('xxx');
+                nextPic()
+            })
+            $('.stage .controller .prev').on('click', function () {
+                // console.log('xxx');
+                current--
+
+
+                if (current < 0) {
+                    current = $('.stage .content img').length - 1
+                }
+                $('.stage .content img').eq(current).addClass('active').siblings().removeClass('active')
+                $(dots).eq(current).addClass('active').siblings().removeClass('active')
+
+            })
+
+            function nextPic() {
+                current++
+
+                if (current > $('.stage .content img').length - 1) {
+                    console.log('xxx');
+                    current = 0
+
+                }
+                $('.stage .content img').eq(current).addClass('active').siblings().removeClass('active')
+                $(dots).eq(current).addClass('active').siblings().removeClass('active')
+            }
+
+            var timer = setInterval(function () {
+                nextPic()
+            }, 1000)
+
+            $('.stage').on("mouseover", function () {
+                clearInterval(timer)
+            })
+
+            $('.stage').on("mouseout", function () {
+                timer = setInterval(nextPic, 1000)
+            })
+            
+
+
+        })
+    </script>
+</body>
+
+</html>

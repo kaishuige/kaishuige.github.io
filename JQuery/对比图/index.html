@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: red;
+        }
+
+        .stage {
+            width: 400px;
+            height: 300px;
+            margin: 100px auto;
+        }
+
+        .stage .box {
+            width: 400px;
+            height: 300px;
+            background-color: white;
+            position: relative;
+            box-shadow: 0 0 40px 5px rgba(0, 0, 0, .4);
+
+        }
+
+        img {
+            height: 100%;
+        }
+
+        .stage .box .former {
+            width: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 9;
+            overflow: hidden;
+        }
+
+        .stage .box .now {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 8;
+        }
+
+        .stage .box .dashed-y {
+            width: 4px;
+            height: 300px;
+            background: yellow;
+            position: absolute;
+            left: 50%;
+            z-index: 9999;
+            margin-left: -2px;
+        }
+
+        .stage .box .dot {
+            width: 40px;
+            height: 40px;
+            background: white;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            z-index: 9999;
+            margin-left: -20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .stage .box .dot:hover {
+            background: #555555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="box">
+            <div class="former"><img src="./m1.jpg" alt=""></div>
+            <div class="dashed-y"></div>
+            <div class="dot"></div>
+            <div class="now"><img src="./m2.jpg" alt=""></div>
+        </div>
+    </div>
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            $('.stage .box .dot').mousedown(function () {
+                console.log('xxx');
+                $('.box').mousemove(function (event) {
+                    var x = (event.pageX || event.clientX) - $(this).offset().left
+                    // console.log($(this).offset());
+                    console.log(x);
+                    x = x <= 20 ? 20 : x
+                    x = x >= 380 ? 380 : x
+                    $('.stage .box .dot').css("left", x)
+                    $('.stage .box .dashed-y').css('left', x)
+                    $('.stage .former').css('width', x + 'px')
+                })
+            })
+
+            $('body').mouseup(function () {
+                $('.box').off('mousemove')
+            })
+        })
+    </script>
+</body>
+
+</html>

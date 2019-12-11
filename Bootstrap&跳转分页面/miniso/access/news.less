@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    list-style: none;
+}
+
+.wrapper {
+    width: 100%;
+
+    .wrap {
+        width: 1200px;
+        margin: 0 auto;
+        border-top: 3px solid red;
+
+        .header {
+            padding-top: 27px;
+            width: 100%;
+            height: 127px;
+            box-sizing: border-box;
+            position: relative;
+
+            .headerleft {
+                width: 61px;
+                height: 75px;
+                float: left;
+                margin-top: 4px;
+
+            }
+
+            .headerright {
+                .versionswitchingwrap {
+                    width: 104px;
+                    float: right;
+
+                    .versionswitching {
+                        width: 73px;
+                        height: 18px;
+                        border-bottom: 1px solid #ccc;
+                        position: relative;
+                        float: left;
+                        padding-bottom: 6px;
+
+                        // &:hover {
+                        //     .language_list {
+                        //         opacity: 1;
+
+                        //     }
+
+                        // }
+
+                        .versions {
+                            width: 73px;
+                            position: absolute;
+                            background: #fff;
+                            top: 0;
+                            left: 0;
+                            font-size: 12px;
+                            color: #666;
+                            border: 0;
+                            outline: none;
+                            padding-left: 12px;
+                            box-sizing: border-box;
+                        }
+
+                        img {
+                            width: 8px;
+                            height: 5px;
+                            position: absolute;
+                            right: 0;
+                            top: 7px;
+                            z-index: 3
+                        }
+
+                        .language_list {
+                            width: 104px;
+                            background-color: #fff;
+                            padding: 20px 12px 10px;
+                            box-sizing: border-box;
+                            position: absolute;
+                            // top: 24px;
+                            left: 0;
+                            z-index: 5;
+                            // display: none;
+                            opacity: 0;
+                            transition: 1s all linear;
+                            top: 25px;
+
+                            li {
+                                margin-bottom: 10px;
+                                cursor: pointer;
+
+                                a {
+                                    font-size: 12px;
+                                    color: #666;
+                                    text-decoration: none;
+                                    border-bottom: 2px solid red;
+                                }
+
+                                .worldsite {
+                                    font-size: 12px;
+                                    height: 16px;
+                                    color: #666;
+
+                                    img {
+                                        width: 16px;
+                                        height: 16px;
+                                        vertical-align: middle;
+                                        margin-left: 8px;
+                                        padding-top: 106px;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
+                    .searchwrap {
+                        float: right;
+                        width: 12px;
+                        height: 13px;
+                        margin-top: -1px;
+                        cursor: pointer;
+                    }
+                }
+
+
+                .navigation {
+                    position: absolute;
+                    right: 0;
+
+                    li {
+                        float: left;
+                        margin-top: 56px;
+                        display: block;
+                        margin-right: 53px;
+
+                        a {
+                            text-decoration: none;
+                            font-size: 16px;
+                            color: #333;
+                            font-weight: bold;
+                            // background-color: white;
+
+                        }
+
+                        &:hover {
+                            a {
+                                color: #e77173;
+                            }
+                        }
+
+                        // a:first-child {
+
+                        //     border-bottom: 2px solid red;
+                        // }
+
+                    }
+
+                    li:last-child {
+                        margin-right: 0px;
+                    }
+
+                    .navline {
+                        width: 32px;
+                        height: 3px;
+                        background: #d10709;
+                        position: absolute;
+                        left: 255px;
+                        bottom: -21px;
+                    }
+                }
+            }
+        }
+    }
+
+    .centent {
+        .newnavwrap {
+            border-top: 1px solid #ccc;
+            padding-top: 100px;
+            width: 100%;
+
+            .newnav {
+                width: 992px;
+                margin: 0 auto 60px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+
+                .newnavlis {
+                    float: left;
+                    width: 237px;
+                    height: 60px;
+                    margin-right: 10px;
+                    border: solid 1px #d5d5d5;
+                    box-sizing: border-box;
+                    padding-left: 21px;
+                    line-height: 60px;
+                    font-size: 18px;
+                    color: #666;
+                    cursor: pointer;
+
+                    &:first-child {
+                        background: #d9232e;
+                    }
+
+                    span {
+                        margin: 0 81px 0 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .newcontent {
+        .newcon {
+            overflow: hidden;
+            .newslayout {
+                margin-bottom: 55px;
+                float: left;
+                margin-left: 20px;
+
+                .newsimgaes {
+                    width: 380px;
+                    height: 214px;
+                    margin-bottom: 30px;
+                    overflow: hidden;
+                }
+
+                .newstitle {
+                    width: 359px;
+                    font-size: 18px;
+                    color: #333;
+                    line-height: 36px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    height: 31px;
+                }
+
+                .nl_time {
+                    margin-top: 20px;
+
+                    img {
+                        vertical-align: middle;
+                        margin-right: 9px;
+                        font-size: 14px;
+                    }
+
+                    span {
+                        vertical-align: middle;
+                        margin-right: 9px;
+                        font-size: 14px;
+                    }
+                }
+
+                .newsthems {
+                    width: 344px;
+                    height: 76px;
+                    margin: 18px 0 42px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                    a {
+                        width: 100%;
+                        height: 76px;
+                        font-size: 14px;
+                        color: #666;
+                        line-height: 24px;
+                        display: block;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        text-decoration: none;
+                    }
+                }
+
+            }
+
+            .newmores {
+                width: 178px;
+                height: 45px;
+                margin: 10px auto 0;
+                cursor: pointer;
+                img{
+                    width: 178px;
+                    height: 45px;
+                    display: block;
+                    float: left;
+                }
+            }
+        }
+    }
+}
+.footer{
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 100px;
+    border-top: 2px solid #000;
+    padding: 0px 0 40px;
+}
+
+.foodsfa {
+    width: 1200px;
+    // float: left;
+    margin: 0 auto;
+    padding-top: 1px;
+
+    .footerleft {
+        width: 100%;
+        font-size: 14px;
+        color: #666;
+        float: left;
+        padding-bottom: 50px;
+    }
+}
+.topwrap{
+    width: 48px;
+    height: 48px;
+    position: fixed;
+    z-index: 999;
+    right: 10px;
+    top: 50%;
+    margin-top: -35px;
+    // display: none;
+    background: #000;
+    img{
+        width: 30px;
+        display: block;
+        margin: 14px auto 0;
+    }
+}

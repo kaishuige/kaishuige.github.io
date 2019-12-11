@@ -1,0 +1,91 @@
+body,
+html {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.stage {
+  width: 200%;
+  height: 100%;
+  transition: all 0.3s;
+}
+.stage .game-start {
+  width: 50%;
+  height: 100%;
+  float: left;
+  background-size: cover;
+  background-position: center 0px;
+  background-repeat: repeat-y;
+  position: relative;
+  background-image: url('../images/background-start.png');
+}
+.stage .game-start button.start {
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  width: 200px;
+  margin-left: -100px;
+  line-height: 40px;
+  background: #c4c9ca;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 40px;
+  padding: 0;
+  bottom: 100px;
+}
+.stage .game {
+  width: 50%;
+  height: 100%;
+  float: left;
+  background-size: cover;
+  background-position: center 0px;
+  background-repeat: repeat-y;
+  position: relative;
+  background-image: url('../images/background-game.png');
+}
+.stage .game img {
+  position: absolute;
+}
+.stage .game .content {
+  width: 100%;
+}
+.stage .game .content .score {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.stage .game .content .dead {
+  transition: all 0.3s;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+.stage .game .content .dead button {
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  width: 200px;
+  margin-left: -100px;
+  line-height: 40px;
+  background: #c4c9ca;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 40px;
+  padding: 0;
+  position: static;
+  margin: 10px auto;
+  z-index: 9;
+  background: #c3c8c9;
+}
+.stage .game .content .buff {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.stage .game .content .buff #buffbtn {
+  z-index: 9;
+  background: #c3c8c9;
+  outline: none;
+  border: 1px solid black;
+}

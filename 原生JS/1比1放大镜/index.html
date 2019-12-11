@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .stage {
+            margin: 100px auto;
+            width: 800px;
+        }
+
+        .box {
+            float: left;
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+
+        .box img {
+            width: 100%;
+        }
+
+        .zoom {
+            width: 400px;
+            height: 400px;
+            float: left;
+            background: url('./img2/手机.png') no-repeat;
+            background-size: 200%;
+            opacity: 0;
+            
+        }
+
+        .mask {
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="box">
+            <img src="./img2/手机.png" alt="">
+            <div class="mask"></div>
+        </div>
+        <div class="zoom"></div>
+    </div>
+
+    <script>
+        var box = document.querySelector('.box')
+        var mask = document.querySelector('.mask')
+        var zoom = document.querySelector('.zoom')
+
+        box.onmousemove = function (event) {
+            var x = (event.clientX - box.offsetLeft) - 100
+            var y = (event.clientY - box.offsetTop) - 100
+            if (x < 0) {
+                x = 0
+            }
+            if (y < 0) {
+                y = 0
+            }
+            if (x > 200) {
+                x = 200
+            }
+            if (y > 200) {
+                y = 200
+            }
+            mask.style.left=x+'px'
+            mask.style.top=y+'px'
+
+            zoom.style.opacity=1;
+
+            zoom.style.backgroundPositionX = -2 * x + 'px'
+            zoom.style.backgroundPositionY = -2 * y + 'px'
+
+        }
+    </script>
+</body>
+
+</html>
