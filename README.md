@@ -1,6 +1,6 @@
-## 项目展示
+# 项目展示
 
-#### html+css+静态页面
+### *html+css+静态页面*
 
 [disinsection](https://kaishuige.github.io/HTML&CSS/disinsection/index.html)
 
@@ -10,7 +10,7 @@
 
 [game](https://kaishuige.github.io/HTML&CSS/gamePage/index.html)
 
-#### 原生js
+### *原生js*
 
 [1比1比例放大镜](https://kaishuige.github.io/原生JS/1比1放大镜/index.html)
 
@@ -30,9 +30,7 @@
 
 [旋转木马轮播图](https://kaishuige.github.io/原生JS/旋转木马/index.html)
 
-#### 
-
-#### jQuery
+### *jQuery*
 
 [简易轮播1](https://kaishuige.github.io/JQuery/JQ缓动块轮播图/index.html)
 
@@ -56,7 +54,7 @@
 
 [简易音乐播放器](https://kaishuige.github.io/JQuery/music/index.html)
 
-#### CSS3+html5
+### *CSS3+html5*
 
 [loading](https://kaishuige.github.io/CSS3&HTML5/loadings/index.html)
 
@@ -64,7 +62,7 @@
 
 [3dBOX](https://kaishuige.github.io/CSS3&HTML5/正方体/index.html)
 
-#### bootstrap + 跳转分页面
+### *bootstrap + 跳转分页面*
 
 [名创优品](https://kaishuige.github.io/Bootstrap&跳转分页面/miniso/home.html)
 
@@ -72,28 +70,28 @@
 
 [模特网站](https://kaishuige.github.io/Bootstrap&跳转分页面/model/index.html)
 
-#### canvas 
+### *canvas* 
 
 [球球大作战](https://kaishuige.github.io/canvas/球球大作战/index.html)
 
 [机器猫](https://kaishuige.github.io/canvas/机器猫/index.html)
 
-#### ES6
+### *ES6*
 
 
 
 
 
-#### VUE
+### *VUE*
 
 
 
 
 
-#### 小程序
+### *小程序*
 
 
 
 
 
-#### nood.js
+### *nood.js*
