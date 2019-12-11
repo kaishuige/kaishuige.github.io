@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<div class="stage">
+			<dl>
+				<dt>Movies</dt>
+				<dd>Popular</dd>
+			</dl>
+			<div class="items">
+				<div class="card">
+					<!-- <div class="thumb"></div> -->
+				</div>
+				<div class="card"></div>
+				<div class="card"></div>
+			</div>
+		</div>
+		<script>
+			var stage = document.querySelector(".stage");
+			var cards = stage.querySelectorAll(".items .card");
+			document.body.onmousemove = function(event) {
+				var x = event.clientX - stage.offsetLeft - stage.offsetWidth / 2;
+				var y = event.clientY - stage.offsetTop - stage.offsetHeight / 2;
+				console.log(x, y);
+
+				// document.body.style.perspectiveOrigin = x / 5 + 50 + "% " + (y / 5 + 50) + "%";
+				stage.style.transform = "rotateY(" + -x / 50 + "deg) rotateX(" + y / 50 + "deg)";
+
+				// 遍历卡片
+				cards.forEach(function(card, index) {
+					card.style.backgroundPosition =
+						-x / 100 +
+						10 +
+						"px " +
+						(-y / 100 + 60) +
+						"px, " +
+						(x / 80 + -10) +
+						"px " +
+						(y / 80 + -10) +
+						"px";
+						if (index == 1) {
+							card.style.backgroundPosition =
+						-x / 100 +
+						30 +
+						"px " +
+						(-y / 100 + 60) +
+						"px, " +
+						(x / 80 + -10) +
+						"px " +
+						(y / 80 + -10) +
+						"px";
+						}
+				});
+			};
+		</script>
+	</body>
+</html>

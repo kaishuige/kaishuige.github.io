@@ -1,0 +1,54 @@
+
+body {
+	height: 100vh;
+	margin: 0;
+	background: linear-gradient(rgb(255, 0, 98), purple);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	perspective: 1500px;
+}
+.stage {
+	width: 600px;
+	height: 400px;
+	// background: url('./600x600.jpg');
+	background: white;
+	border-radius: 20px;
+	box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+	dl dt{
+		font-size: 20px;
+		color: yellow;
+		margin-left: 40px;
+		margin-bottom:10px;
+
+	}
+	dd{
+		color: black;
+		font-size: 18px;
+	}
+
+	.items {
+		display: flex;
+		justify-content: space-around;
+		.card {
+			width: 160px;
+			height: 240px;
+			overflow: hidden;
+			border-radius: 20px;
+			background-image: url("https://www.17sucai.com/preview/1424582/2018-11-08/kp/img/3dr_mono.png"),
+				url("https://www.17sucai.com/preview/1424582/2018-11-08/kp/img/3dr_monobg.jpg");
+				background-repeat: no-repeat, repeat;
+			background-size: auto 200px, 200px;
+			background-position: 10px 60px, -10px -10px;
+			&:nth-child(2) {
+				background-image: url("https://www.17sucai.com/preview/1424582/2018-11-08/kp/img/3dr_chihiro.png"),
+				url("https://www.17sucai.com/preview/1424582/2018-11-08/kp/img/3dr_spirited.jpg");
+				background-position: 30px 60px, -10px -10px;
+			}
+			&:nth-child(3) {
+				background-image: url("https://www.17sucai.com/preview/1424582/2018-11-08/kp/img/3dr_howlcastle.png"),
+				url("https://www.17sucai.com/preview/1424582/2018-11-08/kp/img/3dr_howlbg.jpg");
+			}
+		}
+	}
+}
