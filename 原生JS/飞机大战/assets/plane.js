@@ -11,7 +11,7 @@ var buffbtn = document.querySelector('.game .content .buff #buffbtn')
 
 
 var typeOurPlane = {
-    path: "our-Plane.gif",
+    path: "our-plane.gif",
     boom: "our-plane-boom.gif",
     w: 66,
     h: 80,
