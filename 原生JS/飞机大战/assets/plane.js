@@ -428,9 +428,10 @@ btnStart.onclick = function () {
     game.start();
 }
 
-//手指拖动的时候 移动飞机 更新我方飞机的位子
+// //手指拖动的时候 移动飞机 更新我方飞机的位子
 scenceGame.ontouchmove = function (event) {
     //  console.log(event);
+	event.preventDefault()
 
     game.players[0].x = event.touches[0].pageX
     game.players[0].y = event.touches[0].pageY
@@ -440,6 +441,34 @@ scenceGame.ontouchmove = function (event) {
     })
 
 }
+
+// if (navigator.maxTouchPoints == 1) {
+//     scenceGame.ontouchmove = function(event) {
+//         // console.log('xxx');
+//         game.players[0].x = event.touches[0].pageX;
+//         game.players[0].y = event.touches[0].pageY;
+
+//         // 我方飞机移动  根据自身对象的xy重设定位
+//         game.players.forEach(function(player) {
+//             player.updataView();
+//         });
+//     };
+// }
+// //鼠标移动，更新飞机位置
+// if (navigator.maxTouchPoints == 0) {
+//     scenceGame.onmousedown = function() {
+//         scenceGame.onmousemove = function(event) {
+//             event.preventDefault();
+//             game.players[0].x = event.pageX;
+//             game.players[0].y = event.pageY;
+
+//             // 我方飞机移动  根据自身对象的xy重设定位
+//             game.players.forEach(function(player) {
+//                 player.updataView();
+//             });
+//         };
+//     };
+// }
 
 //点击游戏场景 暂停开始游戏 
 scenceGame.ontouchstart = function (start) {

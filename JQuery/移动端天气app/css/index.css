@@ -80,6 +80,7 @@ body{
   background: url("../images/search.png") no-repeat center center;
   background-size: .2rem .2rem;
   margin-top: .04rem;
+  cursor: pointer;
 }
 
 .current-weather{

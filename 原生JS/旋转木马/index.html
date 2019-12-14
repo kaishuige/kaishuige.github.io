@@ -105,10 +105,41 @@
             display: block;
             float: right;
         }
+		
+		
+		.stage {
+		    width: 600px;
+		    background: lightblue;
+		    position: relative;
+		    overflow: hidden;
+			margin: 100px auto;
+		
+		}
+		
+		.stage img {
+		    width: 400px;
+		    vertical-align: middle;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    transition: all 1s;
+		}
+		
+		.stage img:first-child {
+		    position: relative;
+		}
     </style>
 </head>
 
 <body>
+	
+	<div class="stage">
+	    <img src="./img/a1.png" alt="">
+	    <img src="./img/a2.png" alt="">
+	    <img src="./img/a3.png" alt="">
+	    <img src="./img/a4.png" alt="">
+	
+	</div>
     <div class="box" id="box">
         <div class="slide" id="slide">
             <ul>
@@ -233,7 +264,7 @@
                     'zIndex': obj[i].z,
                 }, )
             }
-        }, 2000);
+        }, 1000);
 
         box.onmouseover = function () {
             animate(arrow, {
@@ -247,9 +278,38 @@
                 'opacity': 0
             })
             // obj.unshift(obj.pop())
-            timer = setInterval(changepic, 2000)
+            timer = setInterval(changepic, 1000)
         }
     </script>
+	
+	
+	<script>
+	    var stage = document.querySelector('.stage')
+	    var imgs = document.querySelectorAll('.stage img')
+	
+	    var remain = stage.offsetWidth - imgs[0].offsetWidth
+	
+	
+	
+	
+	    imgs.forEach(function (element, index) {
+	        element.xxx = index
+	        element.style.left = index * stage.offsetWidth / imgs.length + 'px'
+	        element.addEventListener('mouseover', function () {
+	            var xxx = this.xxx
+	            imgs.forEach(function (element, index) {
+	                if (index <= xxx) {
+	                    element.style.left = remain / (imgs.length - 1) * index + 'px'
+	                } else {
+	                    element.style.left = imgs[0].offsetWidth + remain / (imgs.length - 1) *
+	                        (index - 1) +
+	                        'px'
+	                }
+	            })
+	        })
+	    })
+	
+	</script>
 </body>
 
 </html>

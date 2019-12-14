@@ -392,6 +392,7 @@
             //让我的球跟着鼠标移动
             if (Math.abs(event.offsetX - game.center.x) < 5 && Math.abs(event.offsetY - game.center.y) < 5) {
                 canvas.onmousemove = function (event) {
+					event.preventDefault()
                     console.log(event.offsetX, event.offsetY);
                     // 根据鼠标移动位置 更新我方 位置
                     meBoll.x = event.offsetX;
@@ -401,6 +402,7 @@
 
             if (navigator.maxTouchPoints) {
                 canvas.ontouchmove = function (event) {
+					event.preventDefault()
                     // console.log(event);
                     meBoll.x = event.touches[0].pageX;
                     meBoll.y = event.touches[0].pageY;
