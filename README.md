@@ -80,7 +80,7 @@
 
 ### *VUE*
 
-[品书阅读器](https://kaishuige.github.io/Vue/品书/index.html)
+[品书阅读器](https://kaishuige.github.io/Vue/novel/index.html)
 
 [酷狗音乐播放器](https://kaishuige.github.io/Vue/kgmusic/index.html)
 
