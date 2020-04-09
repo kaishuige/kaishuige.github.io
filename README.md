@@ -78,22 +78,18 @@
 
 [机器猫](https://kaishuige.github.io/canvas/机器猫/index.html)
 
-### *ES6*
-
-
-
-
-
 ### *VUE*
 
+[品书阅读器](https://kaishuige.github.io/Vue/品书/index.html)
+
+[酷狗音乐播放器](https://kaishuige.github.io/Vue/kgmusic/index.html)
 
 
 
 
-### *小程序*
 
 
 
 
 
-### *nood.js*
+### 
